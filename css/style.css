@@ -417,6 +417,8 @@ body table {
   border-collapse: collapse;
   text-align: left;
   font-size: 12px;
+  overflow: auto;
+  display: block;
 }
 body th {
   padding: 8px;
@@ -544,7 +546,7 @@ body {
   }
 }
 .max-width {
-  max-width: 48rem;
+  max-width: 39rem;
 }
 @media (max-width: 480px) {
   .px3 {
@@ -584,11 +586,11 @@ body {
   text-decoration: none;
 }
 #header #logo {
-  width: 206px;
-  height: 80px;
+  width: 0px;
+  height: 0px;
   border-radius: 5px;
   filter: grayscale(100%);
-  background-size: 206px 80px;
+  background-size: 0px 0px;
   background-repeat: no-repeat;
   -webkit-filter: grayscale(100%);
 }
@@ -639,7 +641,7 @@ body {
   #header #title {
     display: table;
     margin-right: 5rem;
-    min-height: 80px;
+    min-height: 0px;
   }
   #header #title h1 {
     display: table-cell;
@@ -663,7 +665,7 @@ body {
   }
   #header #nav li:not(:first-child) {
     padding-top: 1rem;
-    padding-left: 226px;
+    padding-left: 20px;
     font-size: 1rem;
   }
 }
@@ -673,6 +675,7 @@ body {
   right: 0;
   display: inline-block;
   float: right;
+  z-index: 100;
 }
 #header-post a {
   background: none;
