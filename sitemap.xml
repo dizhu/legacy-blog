@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://coderemixer.com/2018/12/07/y-combinator-in-ten-minutes/</loc>
+    
+    <lastmod>2019-01-19T03:34:13.175Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://coderemixer.com/2019/01/19/why-i-hear-all-ha-into-wa/</loc>
     
     <lastmod>2019-01-19T03:02:26.278Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://coderemixer.com/2018/12/08/ruby-quiz-base32/</loc>
     
     <lastmod>2018-12-08T01:58:48.756Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://coderemixer.com/2018/12/07/y-combinator-in-ten-minutes/</loc>
-    
-    <lastmod>2018-12-07T11:39:51.544Z</lastmod>
     
   </url>
   
