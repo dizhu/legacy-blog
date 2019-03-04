@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="代码混音师">
 <meta property="og:description" content="引言我考虑重新设计一个即时通讯工具的想法已经很久了，但一直没有付诸于事实。有几个理由让我不得不设计一个新的 IM。我对于我目前正在使用的 IM 工具都不能感到满意。我基本可以把我正在使用的 IM 分成几类：  由运营商直接提供的通讯系统（电话、短信） 社交属性重的通讯工具（微信、Line、Facebook Messenger） 具有一定安全性设计的通讯系统（iMessage、Telegram、Ke">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-04T19:25:59.591Z">
+<meta property="og:updated_time" content="2019-03-04T19:27:55.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="挖一个关于 IM 工具的新坑">
 <meta name="twitter:description" content="引言我考虑重新设计一个即时通讯工具的想法已经很久了，但一直没有付诸于事实。有几个理由让我不得不设计一个新的 IM。我对于我目前正在使用的 IM 工具都不能感到满意。我基本可以把我正在使用的 IM 分成几类：  由运营商直接提供的通讯系统（电话、短信） 社交属性重的通讯工具（微信、Line、Facebook Messenger） 具有一定安全性设计的通讯系统（iMessage、Telegram、Ke">
@@ -160,7 +160,7 @@
 <h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><blockquote>
 <p>任何人的私生活、家庭、住宅和通信不得任意干涉，他的荣誉和名誉不得加以攻击。人人有权享受法律保护，以免受这种干涉或攻击。——《世界人权宣言》第十二条</p>
 </blockquote>
-<p>如果一个系统是通讯系统，那么隐私是这个系统的第一要务。一个没有良好隐私设计的通讯系统如同乔治奥威尔的小说<a href="https://zh.wikipedia.org/zh/%E4%B8%80%E4%B9%9D%E5%85%AB%E5%9B%9B" target="_blank" rel="noopener">《1984》</a>中无处不在的 <a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%B9%95" target="_blank" rel="noopener">电幕（Telescreen</a> 一样。更可怕的是，电幕本身的设计也许也很不良，以至于能观看到你隐私的不止有老大哥，还有可能是黑色产业链下的其他人。如果一个系统有后门，你不能保证知道这个后门的只有你自己。</p>
+<p>如果一个系统是通讯系统，那么隐私是这个系统的第一要务。一个没有良好隐私设计的通讯系统如同乔治奥威尔的小说<a href="https://zh.wikipedia.org/zh/%E4%B8%80%E4%B9%9D%E5%85%AB%E5%9B%9B" target="_blank" rel="noopener">《1984》</a>中无处不在的 <a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%B9%95" target="_blank" rel="noopener">电幕（Telescreen）</a> 一样。更可怕的是，电幕本身的设计也许也很不良，以至于能观看到你隐私的不止有老大哥，还有可能是黑色产业链下的其他人。如果一个系统有后门，你不能保证知道这个后门的只有你自己。</p>
 <p>这个系统同样必须要是毫无保留开源的，只有把安全问题曝光在太阳之下，才能及时解决这些问题。我希望这是一个自由软件（客户端基于 GPL，服务端基于 AGPL），这有助于每个人更好改进它，或者改造成适合在公司内使用的内部聊天工具。</p>
 <p>基于这点之下，我重新设计了账户系统、聊天系统和群组系统。并期待能在隐私的大前提下去建立一个合适的聊天工具应有的样子。</p>
 <h3 id="账户体系"><a href="#账户体系" class="headerlink" title="账户体系"></a>账户体系</h3><p>账户体系是围绕 GnuPG 设计的，服务器只存储你的公钥信息。如果你丢失了你的私钥或者保护私钥的密码，那么你的账户是完全不可找回的。当你的 key 发生泄漏的情况下，你可以通过吊销证书彻底摧毁掉这个帐号，不提供任何恢复的选项。这个过程直接粗暴，不会有所谓客服介入，以减少社会工程学攻击的可能。吊销前你可以通过没有丢失的设备导出好友列表，但之后依然需要在新帐号重新添加。</p>
