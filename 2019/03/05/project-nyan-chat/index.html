@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="代码混音师">
 <meta property="og:description" content="引言我考虑重新设计一个即时通讯工具的想法已经很久了，但一直没有付诸于事实。有几个理由让我不得不设计一个新的 IM。我对于我目前正在使用的 IM 工具都不能感到满意。我基本可以把我正在使用的 IM 分成几类：  由运营商直接提供的通讯系统（电话、短信） 社交属性重的通讯工具（微信、Line、Facebook Messenger） 具有一定安全性设计的通讯系统（iMessage、Telegram、Ke">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-04T19:27:55.987Z">
+<meta property="og:updated_time" content="2019-03-10T08:55:06.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="挖一个关于 IM 工具的新坑">
 <meta name="twitter:description" content="引言我考虑重新设计一个即时通讯工具的想法已经很久了，但一直没有付诸于事实。有几个理由让我不得不设计一个新的 IM。我对于我目前正在使用的 IM 工具都不能感到满意。我基本可以把我正在使用的 IM 分成几类：  由运营商直接提供的通讯系统（电话、短信） 社交属性重的通讯工具（微信、Line、Facebook Messenger） 具有一定安全性设计的通讯系统（iMessage、Telegram、Ke">
@@ -75,6 +75,8 @@
     <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/03/26/wechat-red-envelope-analyze/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/02/07/chinese-dialect-orthography/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -175,9 +177,9 @@
 <ul>
 <li><a href="https://github.com/nyan-chat/nyan-core" target="_blank" rel="noopener">nyan-core</a> GPLv3 协议。加密的核心实现，Rust 开发，以库的形式加载给其它组件。</li>
 <li><a href="https://github.com/nyan-chat/nyan-api" target="_blank" rel="noopener">nyan-api</a> AGPLv3 协议。API 实现，Ruby 开发，基于 Sinatra、Sequel 和 Ohm，提供一下元信息的交互，以 Redis 作数据交换为主，Postgres 为辅，可水平扩展。</li>
-<li><a href="https://github.com/nyan-chat/nyan-node" target="_blank" rel="noopener">nyan-node</a> AGPL v3 协议。服务端通讯节点实现，Go 开发。提供与用户终端的 Socket 连接，与 Redis 通讯快速验证一些元信息。节点间自由通讯，可水平扩展。</li>
+<li><a href="https://github.com/nyan-chat/nyan-node" target="_blank" rel="noopener">nyan-node</a> AGPL v3 协议。服务端通讯节点实现，Elixir 开发。提供与用户终端的 Socket 连接，与 Redis 通讯快速验证一些元信息。节点间自由通讯，可水平扩展。</li>
 <li><a href="https://github.com/nyan-chat/nyan-desktop" target="_blank" rel="noopener">nyan-desktop</a> GPLv3 协议。目前优先开发的桌面客户端实现，使用 TypeScript 和 Electron。</li>
-<li><a href="https://github.com/nyan-chat/nyan-proxy" target="_blank" rel="noopener">nyan-proxy</a> AGPLv3 协议。开源的守护服务。</li>
+<li><a href="https://github.com/nyan-chat/nyan-daemon" target="_blank" rel="noopener">nyan-daemon</a> AGPLv3 协议。Go 语言开发的守护服务。</li>
 </ul>
 <p>开发时间表另定。欢迎有兴趣的人留言讨论具体细节。</p>
 <p>最后分享一个我最近发现的 2016 年在卡杜甘音乐厅演出的《文明 4》主题曲 Baba Yetu 的 Live，非常震撼。</p>
