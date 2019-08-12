@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderemixer.com/"/>
-  <updated>2019-05-06T14:53:08.120Z</updated>
+  <updated>2019-08-12T13:10:00.693Z</updated>
   <id>https://coderemixer.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>休闲魔蓝玩家的湘南单人四重蓝笋</title>
+    <link href="https://coderemixer.com/2019/08/12/ingress-resistance-shonan-homogeneous-field/"/>
+    <id>https://coderemixer.com/2019/08/12/ingress-resistance-shonan-homogeneous-field/</id>
+    <published>2019-08-12T12:29:28.000Z</published>
+    <updated>2019-08-12T13:10:00.693Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一个蓝笋教徒，上一次也是唯一一次做蓝笋就是 <span style="color: rgb(0, 112, 192);">@ngiamzsjit</span> 设计的复旦单人完全四重任务。</p><p>那个任务我做了两次，第一次做到一半，被突然出现的绿军炸了。而且那个绿军确实是无心的，一边上课一边随手甩了两个炸。由于那个炸同时涉及一类点和二类点。让修复工作变得异常困难，最后随便连了一通就回家了。</p><p>第二次是在夜里做的，当时复旦内部正在施工，有好几个 po 非常难摸，但是做到凌晨还是顺利完工，只不过出校门的时候被复旦的保安问了半天。</p><p><img src="/static/ingress-homo-badge.png" alt="ingress-homo-badge"></p><p>然后我就咸鱼了一年。本来以为到了日本 portal 密度变高应该可以多玩玩，结果一年下来连家门口 50 米远的 IFS 都没去。于是就考虑在暑假趁着做个单人四重竹笋把学校盖了。</p><h2 id="规划"><a href="#规划" class="headerlink" title="规划"></a>规划</h2><p>我大概一个月前开始规划。我们庆应大学湘南藤泽校区在山上，又是休校时间，上山的唯一公共交通工具是公交车，最近的车站分别是 30 分钟车程的湘南台站和辻堂站。这意味着行动一旦开始，绿军就算要来阻挡，至少也需要大概半个小时的机动时间。</p><p>校区很小，校区内大约有 20 个左右的 portal，密度很高，理论上应该会好做，但是实际情况形状不够好，在这些 portal 中找不到可能的四重解。最后考虑引入大学在坡下入口处的纪念碑和学校后门几个神社，最后找到了一组解。</p><p><img src="/static/ingress-homo-plan.png" alt="ingress-homo-plan"></p><p>我一开始使用的是 <span style="color: rgb(0, 112, 192);">@NanoApe</span> 开发的 <a href="https://github.com/Konano/Ingress-Field-Design/" target="_blank" rel="noopener">Konano/Ingress-Field-Design</a> 工具进行规划在。运行过程中发现两个问题，一个是这个项目一开始设计给 Windows 执行的，程序完全由 GB2312 编码编写和编译。实际运行后发现由于我的 portal 名中有日语字符，直接 crash 了整个程序。最后我把编码都换成了 UTF-8 重新编译，输出了四重规划。</p><p>然后是输出单人四重的路径，<a href="https://github.com/Konano/Ingress-Field-Design/" target="_blank" rel="noopener">Konano/Ingress-Field-Design</a> 希望用户手动上传一个经过所有 portal 的路径。而我嫌麻烦，用 Mathematica 随手写了个脚本随手写了个枚举所有点 Dijkstra 找最短路的程序，算法时间复杂度是 O(N^2)。结果就被自己写的程序坑了，因为选定的好几组 portal 在两个坡上，这使得我之后行动时不停上坡下坡。</p><h2 id="行动开始"><a href="#行动开始" class="headerlink" title="行动开始"></a>行动开始</h2><p>在行动开始前有个好消息就是学校的整个区域被一条从农舍间的 portal 射出来的多个蓝色 field 盖场。这使得学校内 portal 在行动开始前完全是没有 link 的状态，这是完美的行动条件。</p><p>但不如人意的是我从 7 号开始感冒发烧，于是行动一直被推迟 <del>（反正画过就是做过）</del>。一直到 10 号 JST 6:00 在双倍经验结束前几个小时，我实在睡不着，想出去散步清醒一下，于是当即决定开始行动。</p><p>首先我坐巴士上到山一半的远藤。在一片杂草中见到那个用来盖场的 portal，插八然后毒，接下来徒步上山。</p><p><img src="/static/ingress-grass.png" alt="ingress-grass"></p><h2 id="插曲-1"><a href="#插曲-1" class="headerlink" title="插曲 1"></a>插曲 1</h2><p>然而行动刚刚开始一小时，我刚把第一个支点的 key 摸全，开始连线就被绿军 <span style="color: rgb(0, 176, 80);">@sicksQ </span> 打了。</p><p><img src="/static/ingress-comm-1.png" alt="ingress-comm-1"></p><p>这直接把我原来的计划打乱。于是我和 Intel 组正在帮我截图的 <span style="color: rgb(0, 112, 192);">@DarkKowalski</span> 开始用工地日语向对方询问。</p><p><img src="/static/ingress-comm-2.png" alt="ingress-comm-2"></p><p>对方随后表示接受，并且让我当心中暑，行动得以继续。但是 key 缺了几把，于是又不得不回去重新摸。根据攻击的范围判断，对方可能就是住在学校附近的住民，万万没想到千算万算在这里失算了。</p><p><img src="/static/ingress-comm-3.png" alt="ingress-comm-3"></p><p>一直到大约 9 点，问题 portal 基本修复完毕。而我因为这个感冒头昏脑胀，学校因为休校，关闭了自动贩卖机，我差点脱水。趁着修复的过程下山买了几瓶运动饮料灌下去又坐了一会，可以继续行动。</p><h2 id="插曲-2"><a href="#插曲-2" class="headerlink" title="插曲 2"></a>插曲 2</h2><p>行动进行到大约 9:30 发现 Ingress Prime 有一个很麻烦的 bug。在 link 完成后，默认提示的下一个 link portal，经常图片没有刷新但是文字没有刷新。这使得我不小心连接错了一个 portal，还好是四类点影响不大，毒了重新摸，再重新连。</p><p>但是当我到最后一个 portal 的时候发现自己忘记带 SoftBank Ultra Link 了。一共要往外射 9 条 link。而我当时已经把支点连接完毕了。</p><p>当时 Intel 组的 <span style="color: rgb(0, 112, 192);">@DarkKowalski</span> 当即表示他有一个 pack 没有兑换，里面有 SoftBank Ultra Link 可以合法空投。这个 pack 放在 <span style="color: rgb(0, 112, 192);">@alexanderjunyin</span> 那里。在连续电话、微信电话、Telegram 电话各两通后，我确认，这人 <strong>睡着 </strong> 了。</p><p><img src="/static/telegram-sleep.png" alt="telegram-sleep"></p><p>于是不得不毒了打掉。从坡下的另一个支点连过来。毒的过程中 8 个 key 只掉了 2 把，库存里还有 2 把，又绕学校一圈重新摸了 4 把。</p><p>最终终于完成了完全四重。</p><p><img src="https://imgur.com/OyAIiox.gif" alt=""></p><p><img src="/static/ingress-homo-result.png" alt="ingress-homo-result"></p><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>虽然最后没有在双倍经验结束前做完，但还是坚持做完了这个非常酷的完全四重。不过我下次再也不想在生病的时候去做这种大任务了，感觉真的要死。另外那位放我一马的重生绿军大佬 <span style="color: rgb(0, 176, 80);"> @sicksQ </span> 觉得这个 CF 很好看，一直到晚上都没有来打。</p><p>这里不愧是乡下，做了一个完全四重 COMM 里完全寂静，而且也没有人约饭。最后只好去便利店买了两个三明治，再去药店买了一盒感冒药回家了。</p><p>不过下个月就要回国，原本考虑做超级大坑清明上河图，但似乎里面有好几个任务没有办法摸到。于是考虑一下是不是有可能去做个单人五重。之前虽然做过 <span style="color: rgb(0, 112, 192);">@ngiamzsjit</span> 的教程，但是觉得对于多重的理解并不是很深刻，在这次自己把自己差点坑死后，感觉自己对完全多重的理解进步很大。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>地面组：<span style="color: rgb(0, 112, 192);">@DELTOND</span></p><p>清障组：<span style="color: rgb(0, 112, 192);">@DELTOND</span></p><p>提供 Key：<span style="color: rgb(0, 112, 192);">@DELTOND</span></p><p>规划程序协力：<span style="color: rgb(0, 112, 192);">@NanoApe</span></p><p>Intel &amp; 截图：<span style="color: rgb(0, 112, 192);">@DarkKowalski</span></p><p>感谢绿军：<span style="color: rgb(0, 176, 80);">@sicksQ </span></p><p>睡觉组：<span style="color: rgb(0, 112, 192);">@alexanderjunyin</span></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作为一个蓝笋教徒，上一次也是唯一一次做蓝笋就是 &lt;span style=&quot;color: rgb(0, 112, 192);&quot;&gt;@ngiamzsjit&lt;/span&gt; 设计的复旦单人完全四重任务。&lt;/p&gt;
+&lt;p&gt;那个任务我做了两次，第一次做到一半，被突然出现的绿军炸了。而且那个
+      
+    
+    </summary>
+    
+    
+      <category term="Ingress" scheme="https://coderemixer.com/tags/Ingress/"/>
+    
+      <category term="完全四重" scheme="https://coderemixer.com/tags/%E5%AE%8C%E5%85%A8%E5%9B%9B%E9%87%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>晦涩难懂的码农段子（连载中）</title>
@@ -516,31 +542,6 @@
     
     
       <category term="阿里巴巴" scheme="https://coderemixer.com/tags/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何读文档？</title>
-    <link href="https://coderemixer.com/2017/07/16/how-to-read-the-fxxking-manual/"/>
-    <id>https://coderemixer.com/2017/07/16/how-to-read-the-fxxking-manual/</id>
-    <published>2017-07-16T12:57:12.000Z</published>
-    <updated>2018-10-21T12:58:30.695Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天收到一份微博私信，问我之前 <a href="/2017/05/22/mass-produced-engineers/">量产型炮灰工程师</a> 中说一个良性的学习循环需要自己寻找线上资源学习、读文档等等，这些都没有在培训班中被学到。那怎样才能比较好的读文档呢？不分享一下的话，老说我是光破不立，光批评别人自己却没有任何解决。那么我来分享一下我读文档的思路吧。</p><h2 id="大局入手"><a href="#大局入手" class="headerlink" title="大局入手"></a>大局入手</h2><p>首先，这里的读文档并不局限于接口文档，接口文档更像是工具书，这里的文档泛指围绕代码周边的文字说明。你要学习一门语言、框架或者某个工具，肯定不是因为它是一个工具所以你就学。框架的开发者也不会是因为想写一个框架所以就写一个框架。凡事都一定有它的理由，一个语言、框架、工具的存在一定是为了解决某一个或某一类特定的问题而存在的。同一个类型的不同的语言、框架、工具之所以会不同，是因为他们试图在解决不同的问题，或者某个工具正在解决另一个不能解决的某种问题。这时候作者的想法是尤为重要的，如果弄清楚这方面想法对于你的学习自然是事半功倍的。</p><p>作者的想法在哪里？</p><p>在官方的教程、官方的概述里。对于 Ruby 来说，其官网的<a href="https://www.ruby-lang.org/zh_cn/about/" target="_blank" rel="noopener">关于页</a>短短一页就几乎解释了什么是 Ruby，Ruby 和其他语言的不同：</p><ul><li>Ruby 从多门语言中学习了经验，注重其平衡性</li><li>兼具函数式编程和命令式编程特色</li><li>Ruby 试着让语言更自然，而不是更简单</li><li>Ruby 将一切视为对象</li><li>Ruby 允许用户修改语言自身</li><li>Ruby 的闭包具有极强表现力</li><li>Ruby 对象只提供单继承，但支持混入</li><li>Ruby 的变量系统</li><li>Ruby 的其他细节</li></ul><p>有了这些大纲，这对于你理解 Ruby 中的很多表现就有了很大的认识。接着再去看 Ruby User’s Guide 或者 Programming Ruby 就会有很大的帮助。</p><h2 id="了解变化"><a href="#了解变化" class="headerlink" title="了解变化"></a>了解变化</h2><p>在学习了一个东西的大纲和入门教程之后，大版本的更新记录是文档中非常重要，却是最容易被忽略的部分。</p><p>比如 Qt 在 4.8 版本中引入了 QML。我相信很多公司都号称使用 Qt 做跨平台界面开发，却很少注意 Qt 本身的变化。很多公司 Qt 5 的代码写得和 Qt 3 也没有什么区别。QML 的引入对于界面的绘制，事件的绑定和数据的刷新提供了一整套 DSL，从而让整个开发变得容易和可读太多。大版本的更新记录很重要是因为之所以会有版本更新一定是因为之前写的不好，需要改进。如果只是从细节入手看接口，旧接口通常会为了兼容性而保留，这时候并不能宏观地知道作者想让你怎么用。</p><p>比如 Ruby 在 2.3.0 中引入了 Safe Navigation Operator <code>&amp;.</code>，其类似于 C# 中的 <code>?.</code>。Ruby 的 ActiveSupport 库中本来其实有类似的语法，它是 <code>Object#try</code>。但 Ruby 作者将这个东西从一个语义层面提升到了一个语法层面，体现了作者在这方面的重视。这是 Ruby 所说的 <code>注重其平衡性</code> 的一种体现。当你了解了作者的这种想法，你才能写出更好的代码，显然 Ruby 作者对 Ruby 的理解是相当深刻的。</p><p>再比如 HTML5 中引入了 WebSocket API，显然就是来解决 Web 双工实时通讯的问题的。如果放着这样的 API 不用，还在使用轮询，甚至在浏览器上做一些 tricks 来实现更长的连接，不但是浪费资源，更是浪费自己的精力。</p><h2 id="实践与细节"><a href="#实践与细节" class="headerlink" title="实践与细节"></a>实践与细节</h2><p>了解了框架的设计思路，了解了基本的使用方法，接下来才可以看接口文档。这时候你已经有了对框架的基本理解，你就知道自己需要看什么。可以结合一个自己要做的项目边写边看。需要用到什么具体的模块，就去查这个模块的所有 API。这通常查询起来会比较方便。当然光看 API 文档只是对框架的使用，还是不够的。一个好的项目不只是使用的优雅，更是管理的艺术。项目要管理得好更需要对项目做正确的抽象，这时候再去多看看这个框架的一些好的项目的开源实现，学习一下。之后就对整个框架不仅仅是熟悉使用了，更是有了大局上的认知，使用起来比单纯熟悉语法要好很多。</p><p>看别人的代码的思路其实和看文档是一样的，不要从细节入手，只会让自己「乱花渐欲迷人眼」。从大局入手，了解作者的实现思路，然后找出实现的最主要的抽象的部分，再慢慢去啃细节的实现自然会比一行一行读容易许多。</p><h2 id="最重要的是"><a href="#最重要的是" class="headerlink" title="最重要的是"></a>最重要的是</h2><p>写代码不是默写，没有人不让你边写边搜边找。读文档的关键是要在出了问题后知道自己要找什么，去哪里找。学习不是闭门造车，要多培养自学的能力，是为了让自己在脱离别人的教学之后知道自己怎么学，去哪里学。计算机软件行业是一个快速更迭的行业，只有让自己始终在学习，才能不至于在这个行业中落后。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天收到一份微博私信，问我之前 &lt;a href=&quot;/2017/05/22/mass-produced-engineers/&quot;&gt;量产型炮灰工程
-      
-    
-    </summary>
-    
-    
-      <category term="编程" scheme="https://coderemixer.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Ruby" scheme="https://coderemixer.com/tags/Ruby/"/>
     
   </entry>
   
