@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderemixer.com/"/>
-  <updated>2019-08-15T10:58:48.636Z</updated>
+  <updated>2019-11-12T17:59:28.353Z</updated>
   <id>https://coderemixer.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量子算命，在线掷筊 —— IBM 量子云计算机使用入门</title>
+    <link href="https://coderemixer.com/2019/11/13/quantum-poe/"/>
+    <id>https://coderemixer.com/2019/11/13/quantum-poe/</id>
+    <published>2019-11-12T17:54:20.000Z</published>
+    <updated>2019-11-12T17:59:28.353Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。</p><p>作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子，使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$ 转换成 $$\frac{ |0\rangle + |1\rangle } {\sqrt{2}} $$，即进行状态叠加。当我们此时测量这一量子的状态，那么其波函数会发生突变，变为其中一个本征态。且在我们所设计的量子电路中，观察到 0 和 1 的概率应该都是 50%。如果我们今天对量子力学的认识是正确的，那么随机性应该是量子物理的内禀性质，所以我们在邀请真正的上帝来为我们掷骰子，能真正表达量子神明的意愿。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们采用 IBM 的量子云计算机 IBM Q 进行实现。IBM 提供了丰富好用的量子程序开发的 SDK，并且可以在设计调试完成后，交给线上真正的云量子计算机进行运算，让你足不出户，不需要亲自前往土地庙，也可以听到神明的解答。</p><p>我们以「掷筊」为例，</p><blockquote><p><a href="https://zh.wikipedia.org/zh-hans/%E6%93%B2%E7%AD%8A" target="_blank" rel="noopener">掷筊</a>是一种道教与民间信仰中问卜的仪式；又称掷筶、掷杯、博杯，普遍流传于华人民间传统社会。「筊杯」是一种占卜工具，是世俗之人所用以与神明指示的工具。</p></blockquote><p>我们同时观测两个处于叠加态的量子。若它们都是 0，那么就是「阴筊」；如果都是 1，那么就是「笑筊」；如果两个状态相反，那么则是「圣筊」。具体的量子电路如下：</p><p><img src="/static/poe-circuit.png" alt="Poe Circuit"></p><p>使用 Qiskit 实现起来非常便利：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Setup Dependencies</span></span><br><span class="line"><span class="keyword">from</span> qiskit <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Setup Poe Dictionaty</span></span><br><span class="line">POES = [<span class="string">'陰筊'</span>, <span class="string">'聖筊'</span>, <span class="string">'聖筊'</span>, <span class="string">'笑筊'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Setup Quantum Circuit</span></span><br><span class="line">circ = QuantumCircuit(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">    circ.h(i)</span><br><span class="line">circ.measure_all()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use Simulator for Testing</span></span><br><span class="line">backend = Aer.get_backend(<span class="string">'qasm_simulator'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Execute the Result</span></span><br><span class="line">job = execute(circ, backend, shots=<span class="number">1</span>)</span><br><span class="line">result = job.result().get_counts(circ)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Convert results</span></span><br><span class="line">converted = int(list(result.keys())[<span class="number">0</span>], <span class="number">2</span>)</span><br><span class="line">print(POES[converted])</span><br></pre></td></tr></table></figure><p>我们只需要每进行一次这个量子电路的执行，就可以得到一次上天的掷筊结果。在模拟器测试成功后，我们就可以将后端换成真正的 IBM 云量子计算机进行掷筊。（完整样例程序<a href="https://github.com/dsh0416/quantum-i-ching/blob/master/poe.ipynb" target="_blank" rel="noopener">参考这里</a>）</p><h2 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h2><p>我们使用了这一技术更有效的让神明为我们解答问题，对于人类社会具有重大意义。再也不需要等妈祖来托梦，人类可以主动去探寻神明的秘密。但是这一方案目前仍存在不足。</p><p>例如如果我们基于易经进行六爻占卜（<a href="https://github.com/dsh0416/quantum-i-ching/blob/master/notebook.ipynb" target="_blank" rel="noopener">程序</a>），一共需要 64 个经典态，即需要 6 个量子。但 6 个量子的量子芯片目前仍十分稀有。但由于我们的占卜过程不需要产生任何纠缠态，只需要 H 门这一种量子门，在此我们提出可以针对这一市场需求设计并行的单量子芯片，从而让量子计算走入千家万户。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使
+      
+    
+    </summary>
+    
+    
+      <category term="量子计算" scheme="https://coderemixer.com/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>日本語字形「关」字攷</title>
@@ -514,31 +537,6 @@
       <category term="运维" scheme="https://coderemixer.com/tags/%E8%BF%90%E7%BB%B4/"/>
     
       <category term="MySQL" scheme="https://coderemixer.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Rack/Rails 服务器获取用户 IP 问题分享</title>
-    <link href="https://coderemixer.com/2017/12/26/rack-rails-user-ip-bug/"/>
-    <id>https://coderemixer.com/2017/12/26/rack-rails-user-ip-bug/</id>
-    <published>2017-12-26T12:58:59.000Z</published>
-    <updated>2018-10-21T12:59:46.519Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>由于最近论坛发生了某些讨论，出现了一个恶意攻击的账号。然而去查用户 IP 时，却发现没有拿到用户的 IP。这个问题非常诡异，几经排查，终于发现了问题，问题同时发生在 Rack 和 Rails 的实现上，这意味着这个问题可能影响几乎所有 Ruby Web 服务器。故有必要写下此文，分享这一问题。</p><h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p>我们先做一个假设问题，如果你是 Rack 的作者，你会如何获取客户端的 IP 地址？</p><p>最容易想到的就是直接获取 TCP 连接的 IP。这个在 Rack 中已经被 parse 成  <code>env[&#39;REMOTE_ADDR&#39;]</code> 了，于是直接获取这个值就可以了。这个做法基本上是对的，但是很快就遇到了问题。如果我的服务器躲在 HTTP 反向代理或者负载均衡之后，那么我获取到的岂不是都是代理的 IP 而不是真正的用户 IP 了吗？</p><p>早年有一些公司会自己设置 HTTP header 来解决这一问题。2004 年 IETF 通过了 <a href="https://tools.ietf.org/html/rfc7239" target="_blank" rel="noopener">RFC 7239 标准</a>，为这样的问题制定了通用的标准。简单来说，就是用 <code>X-Real-IP</code> header 标记用户的真实 IP，用 <code>X-Forwarded-For</code> header 标记途径路由。</p><p>这时候你可能会想 <code>X-Real-IP</code> 不是已经表示了用户的真实 IP 了吗？为什么还需要 <code>X-Forwarded-For</code> 呢？因为 <code>X-Real-IP</code> 可能是用户伪造的。当然这也取决于你的反向代理是怎么配置的，如果你在 nginx 中强写 <code>X-Real-IP</code> 其实没有这一问题。</p><p>但 Rack 作为一个通用的 Web 服务器框架，并不能相信用户会正确处理这个 header。Rack 的判断逻辑初衷是这样的：请求经过了一系列的节点，写了 <code>X-Forwarded-For</code> header，去掉可信任的路由，经过的最后一个路由，是用户 IP。如果用户伪造这个头，那也会是最后一个被最后一个内网路由加上其真实的 IP，从而避开攻击。</p><p>听起来很合理，但是这留下了一个问题：</p><ul><li><strong>哪些路由 IP 是可信任的？</strong></li></ul><h2 id="大于配置的约定"><a href="#大于配置的约定" class="headerlink" title="大于配置的约定"></a>大于配置的约定</h2><h3 id="可信任-内网？"><a href="#可信任-内网？" class="headerlink" title="可信任 = 内网？"></a>可信任 = 内网？</h3><p>Rack 没有强制要求用户自己配置，其判断哪些是可信任的路由 IP 是通过判断 IP 是不是在内网下来的，这在大多数情况下，确实工作，所以我们可能根本不会注意到它。下面是代码：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://github.com/rack/rack/blob/b0818268fd9f4026a1b0fb205cc1060ee38a23cc/lib/rack/request.rb#L419</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trusted_proxy?</span><span class="params">(ip)</span></span></span><br><span class="line">  ip =~ <span class="regexp">/\A127\.0\.0\.1\Z|\A(10|172\.(1[6-9]|2[0-9]|30|31)|192\.168)\.|\A::1\Z|\Afd[0-9a-f]&#123;2&#125;:.+|\Alocalhost\Z|\Aunix\Z|\Aunix:/i</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>这一串正则可以说是相当的刺激，抛开后面的 unix 文件描述符、localhost 和 IPv6 不讲。前面一部分的正则非常取巧。因为在 IP 地址 3 种主要类型（A 类地址、B 类地址、C 类地址）里各有一部分可以作为私有地址。</p><p>A类地址：10.0.0.0～10.255.255.255 </p><p>B类地址：172.16.0.0～172.31.255.255 </p><p>C类地址：192.168.0.0～192.168.255.255</p><p>而 Rack 就是把它们过滤掉了，这些确实描述了可能的内网地址。无论你架在云服务商那里，还是自建机房，能分配的内网确实就是这些。这在大多数情况下工作，除非：</p><h3 id="可信任-内网-可信任外网"><a href="#可信任-内网-可信任外网" class="headerlink" title="可信任 = { 内网, 可信任外网 }"></a>可信任 = { 内网, 可信任外网 }</h3><p>如果你的代理跨内网，比如在多个可用区之间代理，又或者把服务器架在高防后，而高防和你的 IP 不在同一个内网，那你就悲剧了。</p><p>因为中间跨越了公网 IP，Rack 的正则没有 match 上，所以自然就视其为不可信任的 IP，直接取了这个 IP 作为客户端的 IP。</p><p>特别是后者，因为你切换高防是一个很仓促的事件，可能根本想不清这些事，而一旦在高防期间出了问题，就真的查不到 IP 了。</p><h3 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h3><p>由于这个问题出在 Ruby Web 最常用的框架 Rack 上。无论是 Sinatra、Cuba 还是 Rails 都是直接建在上面，Rails 的各种 gem 例如 Devise 也是基于这个假设是正确的。所以几乎所有的 Ruby Web 应用都会受影响。<del>当然你裸写 TCP 本来就是要自己处理的，自然不受影响。</del></p><h2 id="如何配置-Rack"><a href="#如何配置-Rack" class="headerlink" title="如何配置 Rack"></a>如何配置 Rack</h2><p>于是，如果我们要配置，怎么配置呢？Rack 本身并没有直接暴露配置的接口，所以答案就只剩下一种：</p><p><strong>元编程</strong></p><p>例如我需要加入特殊可信任 IP 1.2.3.4，在你应用监听前，Rack 被 require 后（例如 Rails 的 initializer 里）加入形如以下的代码：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Rack</span></span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Request</span></span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trusted_proxy?</span><span class="params">(ip)</span></span></span><br><span class="line">      ip =~ <span class="regexp">/\A127\.0\.0\.1\Z|\A(10|172\.(1[6-9]|2[0-9]|30|31)|192\.168)\.|\A::1\Z|\Afd[0-9a-f]&#123;2&#125;:.+|\Alocalhost\Z|\Aunix\Z|\Aunix:|\A1\.2\.3\.4Z/i</span></span><br><span class="line">      <span class="comment"># 自定义的判断函数，可信任的返回任意值，不可信任的返回 nil 即可。</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>另外需要注意的时，这里不适合从文件或网络 I/O 中获取判断的条件，因为这个部分会被非常频繁地调用，除非你自己实现缓存。</p><h2 id="Rails-用户的坑"><a href="#Rails-用户的坑" class="headerlink" title="Rails 用户的坑"></a>Rails 用户的坑</h2><p>如果你是 Rails 应用，以为做到上面就够了吗？你有没有注意到 Rails 的默认中间件中有一个 <code>ActionDispatch::RemoteIp</code>，你知道这是啥玩意吗？</p><p>Rails 也认识到了 Rack 有这个问题，为了方便配置，把获取 IP 的部分自己单独实现了一遍，默认也是信任内网，然后新建了一个参数： <code>request.remote_ip</code> 用来记录这个值。Rails 看似好意其实带来了不便，因为仍然有许多 gem 是基于 Rack 的  <code>request.ip</code> 写的，比如黑名单工具 Rack Attack，所以并不能帮我们节省配置。</p><p>所以你还要再配置一遍 Rails 才行。</p><p>在  <code>config/application.rb</code>  下执行如下代码：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxies = [] <span class="comment"># proxies 这个参数接受多种形式的参数，详见 http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html</span></span><br><span class="line"></span><br><span class="line">config.middleware.swap ActionDispatch::RemoteIp, ActionDispatch::RemoteIp, <span class="literal">true</span>, proxies</span><br></pre></td></tr></table></figure><p>解决！</p><p><strong>注：示例使用的是 Rails 5 的代码，Rails 3 和 4 的配置代码甚至还不一样🤦‍♀️</strong></p><p>旧版本详见 <a href="https://github.com/rails/rails/issues/5223" target="_blank" rel="noopener">Issue#5223</a> 这个被反复打开的 Issue。</p><h2 id="结"><a href="#结" class="headerlink" title="结"></a>结</h2><p>这是一个很不容易遇到的场景，但一旦遇到又很容易被忽视，忽视后有可能产生很大的麻烦。而且说实话，平时哪怕读 Rack 和 Rails 的源代码也想不到会有这种场景。了解后各位 Ruby 开发者在平时开发中多注意一下吧！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;由于最近论坛发生了某些讨论，出现了一个恶意攻击的账号。然而去查用户 IP 时，却发现没有拿到用户的 IP。这个问题非常诡异，几经排查，终于发现了问题
-      
-    
-    </summary>
-    
-    
-      <category term="编程" scheme="https://coderemixer.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Ruby" scheme="https://coderemixer.com/tags/Ruby/"/>
     
   </entry>
   
