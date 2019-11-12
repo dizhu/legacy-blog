@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子，使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$">
+    <meta name="description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子位（qubit），使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\r">
 <meta name="keywords" content="量子计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量子算命，在线掷筊 —— IBM 量子云计算机使用入门">
 <meta property="og:url" content="https://coderemixer.com/2019/11/13/quantum-poe/index.html">
 <meta property="og:site_name" content="代码混音师">
-<meta property="og:description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子，使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$">
+<meta property="og:description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子位（qubit），使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\r">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://coderemixer.com/static/poe-circuit.png">
-<meta property="og:updated_time" content="2019-11-12T17:59:28.353Z">
+<meta property="og:updated_time" content="2019-11-12T18:06:01.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="量子算命，在线掷筊 —— IBM 量子云计算机使用入门">
-<meta name="twitter:description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子，使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$">
+<meta name="twitter:description" content="背景自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。 作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子位（qubit），使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\r">
 <meta name="twitter:image" content="https://coderemixer.com/static/poe-circuit.png">
 <meta name="twitter:creator" content="@DeltonDing">
     
@@ -151,7 +151,7 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>自古以来算命离不开随机现象。古代人使用龟壳的裂纹来进行占卜，但出于动物保护主义，现代社会使用裂纹之类的自然混沌来预测变得不人道。现代算命会使用洗牌等手段产生随机数，但这样的随机很多时候可以得到人为控制，无法真正体现神明的意思。</p>
-<p>作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子，使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$ 转换成 $$\frac{ |0\rangle + |1\rangle } {\sqrt{2}} $$，即进行状态叠加。当我们此时测量这一量子的状态，那么其波函数会发生突变，变为其中一个本征态。且在我们所设计的量子电路中，观察到 0 和 1 的概率应该都是 50%。如果我们今天对量子力学的认识是正确的，那么随机性应该是量子物理的内禀性质，所以我们在邀请真正的上帝来为我们掷骰子，能真正表达量子神明的意愿。</p>
+<p>作者在此提出一个方法，利用量子力学现象进行随机数的发生。我们对于一个量子位（qubit），使其通过一个阿达马门（Hadamard gate）。这个门可以将 $$|0\rangle $$ 转换成 $$\frac{ |0\rangle + |1\rangle } {\sqrt{2}} $$，即进行状态叠加。当我们此时测量这一量子的状态，那么其波函数会发生突变，变为其中一个本征态。且在我们所设计的量子电路中，观察到 0 和 1 的概率应该都是 50%。如果我们今天对量子力学的认识是正确的，那么随机性应该是量子物理的内禀性质，所以我们在邀请真正的上帝来为我们掷骰子，能真正表达量子神明的意愿。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们采用 IBM 的量子云计算机 IBM Q 进行实现。IBM 提供了丰富好用的量子程序开发的 SDK，并且可以在设计调试完成后，交给线上真正的云量子计算机进行运算，让你足不出户，不需要亲自前往土地庙，也可以听到神明的解答。</p>
 <p>我们以「掷筊」为例，</p>
 <blockquote>
