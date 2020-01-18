@@ -7,9 +7,9 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="序前一晚改论文改睡着了，结果错过了。早上醒来发现题目还挺简单的，来聊一聊谜题的出题思路吧。  一种新科学元胞自动机是一种由元胞、元胞状态、领域、和状态更新规则构成的一个自动机，其数学表达为： $$ A = (L, d, S, N, f) $$ 换成人话就是说，对于一个 d 维度的有限状态矩阵，每次每个格点的状态更新取决于其上一次中周围格点的状态。元胞自动机是研究混沌现象的一个重要模型，在 Wolf">
-<meta name="keywords" content="元胞自动机,混沌,游戏,设计,Ingress">
+<meta name="keywords" content="游戏,设计,Ingress,元胞自动机,混沌">
 <meta property="og:type" content="article">
-<meta property="og:title" content="元胞自动机 101 —— 13 Architypes: Humanist">
+<meta property="og:title" content="元胞自动机 101 —— 13 Archetypes: Humanist">
 <meta property="og:url" content="https://coderemixer.com/2020/01/14/archetypes-humanity/index.html">
 <meta property="og:site_name" content="代码混音师">
 <meta property="og:description" content="序前一晚改论文改睡着了，结果错过了。早上醒来发现题目还挺简单的，来聊一聊谜题的出题思路吧。  一种新科学元胞自动机是一种由元胞、元胞状态、领域、和状态更新规则构成的一个自动机，其数学表达为： $$ A = (L, d, S, N, f) $$ 换成人话就是说，对于一个 d 维度的有限状态矩阵，每次每个格点的状态更新取决于其上一次中周围格点的状态。元胞自动机是研究混沌现象的一个重要模型，在 Wolf">
@@ -18,9 +18,9 @@
 <meta property="og:image" content="https://coderemixer.com/static/game-of-life-ingress.png">
 <meta property="og:image" content="https://coderemixer.com/static/humanity-result.png">
 <meta property="og:image" content="https://coderemixer.com/static/humanity-scan.jpg">
-<meta property="og:updated_time" content="2020-01-14T07:51:04.555Z">
+<meta property="og:updated_time" content="2020-01-18T08:47:04.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="元胞自动机 101 —— 13 Architypes: Humanist">
+<meta name="twitter:title" content="元胞自动机 101 —— 13 Archetypes: Humanist">
 <meta name="twitter:description" content="序前一晚改论文改睡着了，结果错过了。早上醒来发现题目还挺简单的，来聊一聊谜题的出题思路吧。  一种新科学元胞自动机是一种由元胞、元胞状态、领域、和状态更新规则构成的一个自动机，其数学表达为： $$ A = (L, d, S, N, f) $$ 换成人话就是说，对于一个 d 维度的有限状态矩阵，每次每个格点的状态更新取决于其上一次中周围格点的状态。元胞自动机是研究混沌现象的一个重要模型，在 Wolf">
 <meta name="twitter:image" content="https://storage.googleapis.com/ingress-internal-event-data/13archetypes/humanist/humanist2_a6f9854f-6e0c-5050-a10d-91f4aaa4c382.png">
 <meta name="twitter:creator" content="@DeltonDing">
@@ -43,7 +43,7 @@
         
     
     <!-- title -->
-    <title>元胞自动机 101 —— 13 Architypes: Humanist</title>
+    <title>元胞自动机 101 —— 13 Archetypes: Humanist</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -81,6 +81,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2020/01/18/archetypes-skeptic/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="/2020/01/10/from-bopomofo/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -96,15 +98,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&text=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&is_video=false&description=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=元胞自动机 101 —— 13 Architypes: Humanist&body=Check out this article: https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&name=元胞自动机 101 —— 13 Architypes: Humanist&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&text=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&is_video=false&description=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=元胞自动机 101 —— 13 Archetypes: Humanist&body=Check out this article: https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&name=元胞自动机 101 —— 13 Archetypes: Humanist&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -121,7 +123,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        元胞自动机 101 —— 13 Architypes: Humanist
+        元胞自动机 101 —— 13 Archetypes: Humanist
     </h1>
 
 
@@ -233,15 +235,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&text=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&is_video=false&description=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=元胞自动机 101 —— 13 Architypes: Humanist&body=Check out this article: https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Architypes: Humanist"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&name=元胞自动机 101 —— 13 Architypes: Humanist&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&text=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&is_video=false&description=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=元胞自动机 101 —— 13 Archetypes: Humanist&body=Check out this article: https://coderemixer.com/2020/01/14/archetypes-humanity/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&title=元胞自动机 101 —— 13 Archetypes: Humanist"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/01/14/archetypes-humanity/&name=元胞自动机 101 —— 13 Archetypes: Humanist&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
