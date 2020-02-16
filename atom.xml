@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderemixer.com/"/>
-  <updated>2020-01-18T13:32:58.907Z</updated>
+  <updated>2020-02-16T13:39:02.228Z</updated>
   <id>https://coderemixer.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Keyboard Moe」从零开始自制键盘（一）</title>
+    <link href="https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"/>
+    <id>https://coderemixer.com/2020/02/16/moe-keyboard-log-1/</id>
+    <published>2020-02-16T06:43:03.000Z</published>
+    <updated>2020-02-16T13:39:02.228Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="需求探究"><a href="#需求探究" class="headerlink" title="需求探究"></a>需求探究</h2><p>我从去年就考虑做一把自己的键盘。其需要满足下面的需求：</p><ul><li>便携性：提供不少于 70 键的键盘矩阵，支持蓝牙连接。</li><li>电池管理：能够对锂电池进行充放电，并监控电池电量状态。</li><li>接口现代：支持 Type-C 接口，可以自动在蓝牙和 USB HID 模式切换（方便装机等场景）。</li><li>矢量控制：提供一个类似于小红点的推杆，可以临时替代鼠标。</li><li>人体工学布局：由于我的打字键位并不是非常标准，导致现有的人体工学布局用起来非常难受。所以我考虑做一个有两排重复按键的人体工学配列。</li></ul><p>一个简单的想法就是基于开源的 GH60 方案二次开发。我手上有一把白嫖来的 <a href="https://help.ydkb.io/doku.php?id=en:keyboards:chicory" target="_blank" rel="noopener">Chicory</a>，其设计基本还是和 GH60 一致的围绕 Atmega32u4 设计的方案，蓝牙部分再单独连接到 MDBT40 模组（nRF51822）。这个方案的优缺点很明显，优点是可以很好沿用 AVR 相关的软件栈（特别是 <a href="https://github.com/tmk/tmk_keyboard" target="_blank" rel="noopener">tmk_keyboard</a>）。缺点方面一个是贵，官方套件卖到了 120 美金，光 MDBT40-256RV3 模组就要 7 美金；另一方面 GH60 方案已经几乎把 Atmega32u4 的 I/O 口用完了，要想再加一些我上面的那些功能就很困难。</p><p>于是本着吃螃蟹的想法，我决定自己设计一个键盘方案出来。我自己没有专业学习过模拟电路、数字电路，所以也是一遍做一遍学，折腾了大半个月，在去年的 9 月左右进行了第一次的打样。打样的结果非常失败，由于一些设计缺陷，导致最后连上电都存在问题。</p><p><img src="/static/pcb-moe-legacy.jpg" alt="第一版设计图"></p><p>芯片方案这边选的是 ESP32，虽然这芯片本职是做 WiFi 的，但是作为蓝牙芯片也是非常便宜的。但是 ESP32 不支持 USB 主控，于是最后又迫不得已加了 Atmega32u4 来做 USB 主控。实际拿到生产的板子发现，USB Type-C 接口沉板没做，硬飞上去发现 CC 没有接下拉电阻导致识别也有问题。在我的设计中，ESP32 芯片的固件会由 Atmega32u4 刷入，光整明白这个刷机流程就非常困难。耦合度太高，导致调试非常困难，光布线就遇到很多难题，最后 PCB 弄了四层板进一步提高了生产成本。最后 BOM 单下来，一片得有个好几百。就算不考虑钱的问题，这键盘的尺寸很尴尬，上面一堆贴片件，开钢网又特别大，焊一次就得一天，一直试错下去也不是个办法。</p><h2 id="Moe-Modular-Open-Ergonomics"><a href="#Moe-Modular-Open-Ergonomics" class="headerlink" title="Moe (Modular Open Ergonomics)"></a>Moe (Modular Open Ergonomics)</h2><p>在第一次失败后，我就考虑把设计拆成两个部分，进行模块化设计。</p><p>一个是具备所有逻辑功能的核心板 (moe-core) 和键盘矩阵灯阵板 (moe-71)。核心板包括电源管理、蓝牙管理、USB 管理、固件管理等所有功能，通过一个 FPC 连接器连接到矩阵板上。这样我可以先优先调试核心板，在面包板上随便搭个矩阵就能调试。而且也方便之后出不同配列的键盘，只需要换个矩阵板就行，不需要再画那堆复杂的逻辑功能。新的 MCU 选型还是 ESP32，但是去掉了 Atmega32u4。</p><p>Atmega32u4 首先不便宜，对于那个性能来说，非常划不来。相反，我上了一片 <a href="http://www.wch.cn/products/CH9329.html" target="_blank" rel="noopener">CH9329</a>，芯片内已经做好了 HID 鼠标和键盘的封装，BOM 成本只有 3.8 元一片，非常划算。</p><p>另外还给这次的板子加上了一片 <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" target="_blank" rel="noopener">CP2102</a>，从而提供了板上的 USB 刷机口，即插即刷。还有一点吸取教训的，就是在一些辅助功能上都加了一个 0 Ohm 的贴片电阻。如果测试下来硬件上有问题，可以直接把电阻撬了，也不影响其它功能的调试。</p><p>电源方面基本就找了个充电宝的外围芯片 IP5206，能做到 1.5A 充电和 2A 放电，还自带电量查询和手电筒功能（虽然被我串了个电容禁用了，应该没有人想要把键盘当手电筒用）。出来后接到 LDO 上，做一个 3.3V 1A 的输出。</p><p>最后设计出来的核心板的尺寸是 14cm x 3cm。如果使用 <a href="https://www.nordicsemi.com/Products/Low-power-short-range-wireless/nRF5340" target="_blank" rel="noopener">nRF5340</a> 的方案应该尺寸能进一步减少，还能用上蓝牙 5.1 的新特性。就是 nRF5340 太贵，而且模块难买（业余项目没有精力去调射频参数）就放弃了。</p><p>花了一上午来布线，最后折腾来折腾去，把布线控制在了两层板里，于是不需要用到四层板进一步降低了成本。最后合算下来的 BOM 成本在每套 45 元，加上板子和 SMT 的钱，核心板套件的成本在 65 元以内。比 Chicory 功能更丰富，加上配列板的推荐成本还是能控制在 90 元以内，还是颇有价格优势的。</p><p><img src="/static/moe-core-feb.png" alt="电路图"></p><p>工程（MIT 协议）：<a href="https://oshwhub.com/dsh0416/moe-core" target="_blank" rel="noopener">https://oshwhub.com/dsh0416/moe-core</a></p><h2 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h2><p>等疫情过去了流出来调试。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;需求探究&quot;&gt;&lt;a href=&quot;#需求探究&quot; class=&quot;headerlink&quot; title=&quot;需求探究&quot;&gt;&lt;/a&gt;需求探究&lt;/h2&gt;&lt;p&gt;我从去年就考虑做一把自己的键盘。其需要满足下面的需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;便携性：提供不少于 70 键的键盘矩阵，支
+      
+    
+    </summary>
+    
+    
+      <category term="键盘" scheme="https://coderemixer.com/tags/%E9%94%AE%E7%9B%98/"/>
+    
+  </entry>
   
   <entry>
     <title>硬核解谜 Prolog 入门 —— 13 Archetypes: Skeptic</title>
@@ -68,15 +93,15 @@
     </summary>
     
     
+      <category term="元胞自动机" scheme="https://coderemixer.com/tags/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+      <category term="混沌" scheme="https://coderemixer.com/tags/%E6%B7%B7%E6%B2%8C/"/>
+    
       <category term="游戏" scheme="https://coderemixer.com/tags/%E6%B8%B8%E6%88%8F/"/>
     
       <category term="设计" scheme="https://coderemixer.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Ingress" scheme="https://coderemixer.com/tags/Ingress/"/>
-    
-      <category term="元胞自动机" scheme="https://coderemixer.com/tags/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    
-      <category term="混沌" scheme="https://coderemixer.com/tags/%E6%B7%B7%E6%B2%8C/"/>
     
   </entry>
   
@@ -528,31 +553,6 @@
       <category term="字体" scheme="https://coderemixer.com/tags/%E5%AD%97%E4%BD%93/"/>
     
       <category term="法律" scheme="https://coderemixer.com/tags/%E6%B3%95%E5%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从前几天收到的竞选广告说起</title>
-    <link href="https://coderemixer.com/2018/10/22/waki-reiko/"/>
-    <id>https://coderemixer.com/2018/10/22/waki-reiko/</id>
-    <published>2018-10-22T09:19:36.000Z</published>
-    <updated>2018-10-22T12:18:31.405Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>10 月 18 日那天信箱里收到了日本左翼政党立宪民主党藤泽女性市议员参选人脇 れい子的竞选广告。立宪民主党是之前民进党拆伙后独立的政党，右翼部分和希望党合并成立了国民党。看了下这位市议员的竞选广告，Slogan 是「人が生きる町」，竞选主轴围绕藤泽市大量的老年人口的照顾问题，然而这议题占了整个广告页的 1/12 不到。</p><p>花了 1/4 篇幅讲了要推动「候补者均等法案」的实行，查了一下这个法案的具体内容。是在地方和国会选举中要求男女候补者人数均等的法案。此议案在今年 5 月参院全票通过。1/4 的篇幅是和各个其它政客的合照，意义不明。然后 1/4 篇幅列举了自己的求学、工作简历。1/4 要求进行「性暴力被害者支援法」立法。还有一些细碎的其它政见。</p><p>我看完后的感受是——一头雾水。首先，「性暴力被害者支援法」立法工作是立宪民主党的政见，而市议员又不是两院的议员，选不选上都无关。候补者均等法案感觉也很怪，不去讨论解决女性参政者少的背后原因，去立法平衡人数这不是变相的性别歧视吗？也不知道这法案怎么就如此朝野一致地通过了。内容多而杂，很多和竞选内容无直接关系，看完了完全没有对这个议员留下什么好印象。</p><p>如果不是特意细读了一下，恐怕大多数人看完这广告连候选人名字都记不住吧。感觉很失败。</p><h2 id="政治人物的自我修养"><a href="#政治人物的自我修养" class="headerlink" title="政治人物的自我修养"></a>政治人物的自我修养</h2><p>作为一个政治人物，一个最核心的思考方式就是「选民要什么？」和「自己能干什么？」。如果连基本的自我定位都做不好，要么无法获得选民的认可，要么心有余而力不足，不能为选民做好服务。</p><p>在这则广告里，候选人同时犯了这两个错误。</p><p>第一个错误就是弄不清选民要什么。先不说「候补者均等法案」能不能真正推动性别平权，「推动『候补者均等法案』」的这个动作的本身，直接受益者是不是女性呢？答案其实很明显，就算是，也不会是女性的主体。日本地方议员定数是每 100 万人口 500 人，也就是万分之五的比例。如果女性议员不得小于 40%，那就是有万分之二的人口得到了直接受益。间接的受益者则很难计算，即使是女性议员在议会中，也并不代表会为女性直接发声，更何况其仍处于相对的少数。藤泽市人口根据 2015 年联合国数据，是 42.39 万，这样的竞选目标，能不能催出 1000 张选票都成问题，以至于这样的宣传成本和受益是极大不匹配的。</p><p>第二个错误就是对「性暴力被害者支援法」立法工作的推动。「性暴力被害者支援法」自然是个有必要立法的法案。但市议员并不能参与国会的立法，最多只能参与地区的立法，而立法的范围也非常有限。「性暴力被害者支援法」是候选人所在立宪民主党的政见，而市议员又不是两院的议员，选不选上都无关。这样的议题，如果真的被选上了，这位市议员又如何推动立法的执行呢？最后不只能变成一句大话空话吗？会不让人民失望吗？</p><h2 id="利益、政党、财团"><a href="#利益、政党、财团" class="headerlink" title="利益、政党、财团"></a>利益、政党、财团</h2><p>然而问题是，只要一个候选人不是西瓜，受过基本的政治学教育，那么都应该理解上面的道理。但事实上，为什么无论在哪里的选举，这样的事情却屡见不鲜呢？</p><p>这不免和我们现行的民主制度是直接相关的。为使选举资源利用效率最大化，集团化党派化是最便利的形式；而财团和党派长期的良好关系又是运作党派最便利的形式。虽然是民众一票一票投出来来的政治人物，但一个人物，在成为政治人物之前，就已经接受了财团、政党巨大的恩惠了，是为选民直接负责，还是也要为财团、政党服务就成了问题。这在大多数时候不会显得太过矛盾，但一旦财团与人民的利益起冲突时，事情就会起微妙的变化。</p><p>2017 年的台湾政坛的一个重要事件就是<a href="https://zh.wikipedia.org/wiki/2017%E5%B9%B4%E5%8F%B0%E7%81%A3%E5%8B%9E%E5%8B%95%E5%9F%BA%E6%BA%96%E6%B3%95%E4%BF%AE%E6%AD%A3%E7%88%AD%E8%AD%B0" target="_blank" rel="noopener">「台湾劳动基准法修正争议」事件</a>。在这个事件中，我们看到了无数换位置换脑袋的现象。蔡英文选前之夜说「人民的声音，不管怎么大声，到了凯道就停住了」，而 2017 年，蔡英文就把劳基法的抗议民众赶出了凯道。选前和民进党关系极为密切的劳工朋友，竟然他们的声音在凯道前就被停住。那么问题来了，如果是国民党执政，他们就不会伤害劳工朋友吗？</p><p>答案当然是否定的。如果今天是 Hillary 当美国总统，她会为沙特被杀害的记者发声吗？我想也是不会的。要想在选举中浮上台面，需要大量的资源，这些资源可以以钱的形式，也可以不是。而拿了资源自然要为提供资源的人负责。选民能决定的东西，从一开始就是有限的。</p><p>某种意义上这就像纳什均衡一样，用人民的手投出并不最大化人民利益的结果。不只是美国，也不限于总统制，这确实是个很难例外的事，因为也很难想到更好的方式。</p><h2 id="民主政治的科技革命"><a href="#民主政治的科技革命" class="headerlink" title="民主政治的科技革命"></a>民主政治的科技革命</h2><p>选举需要资源，最大的目的是要能让选民接触到被选举人。以美国选举为例，2016 年美国人口 3.234 亿人，2016 年大选投出了 1.37 亿张选票。我们先不考虑美国特殊的选举人团制度，如果是简单多数决，只有两个主要候选人的情况下，至少也要 45% 的得票率，那就是 6100 万张选票。这 6100 万张选票的背后是 6100 万分布在美国各州各县各市，如何把自己的声音传给这 6100 万人就是一个极难解决的问题。所以候选人要控制媒体，从以前的控制报纸，到后来的控制电视，再到现在控制网络，都是一样的理由。控制媒体需要极高的成本，这时候政党和支持政党的财团就变得极为便利。这个世界上不存在一个绝对中立的个人，也不存在一个绝对中立的媒体。今天 Trump 觉得 New York Times 是 Fake News，我很大程度上同意，NYT 的专栏动不动就打自己的脸，要说其很很中立、仔细考证我是不信的。但 Fox News 就不是了吗？每个媒体都在制造 Fake News，但谁当局，谁就可以指定什么是 Fake News。每个人的精力是有限的，能接触到的信息亦是有限的。所谓的「同温层效应」就是人们往往会选择与自己观念相近的信息，而排斥立场相反的信息。</p><p>在这种情况下，有两个政治事件是我感到很惊讶的。一个是 <a href="https://zh.wikipedia.org/wiki/%E5%A4%AA%E9%99%BD%E8%8A%B1%E5%AD%B8%E9%81%8B" target="_blank" rel="noopener">2014 年台湾 318 学运</a> 中 <a href="https://zh.wikipedia.org/wiki/G0v%E9%9B%B6%E6%99%82%E6%94%BF%E5%BA%9C" target="_blank" rel="noopener">g0v 零时政府</a> 扮演的角色。g0v 通过网络，以更低的成本开放政府资料让政府透明，人民更容易做主。虽然我依然相信，和控制报纸和电视一样，拥有更多资源的选举人，只要对网络认识充分，方法妥当，依然有着更大可能性控制网络的舆论。但大多数旧时的选举人仍是迂腐的，所谓「肉食者鄙，未能远谋」。能不能利用网络的优势，以更低的成本来产生更能为人民服务好的政客，来摆脱人民被财团支配的命运？这个问题在我心中还是一个问号，且持悲观态度的。</p><p>但黑暗中的点点星光，还是能让人感受到丁点的希望的。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;10 月 18 日那天信箱里收到了日本左翼政党立宪民主党藤泽女性市议员参选人脇 れい子的竞选广告。立宪民主党是之前民进党拆伙后独立的政党，右翼部分和
-      
-    
-    </summary>
-    
-    
-      <category term="政治观察" scheme="https://coderemixer.com/tags/%E6%94%BF%E6%B2%BB%E8%A7%82%E5%AF%9F/"/>
-    
-      <category term="日本" scheme="https://coderemixer.com/tags/%E6%97%A5%E6%9C%AC/"/>
     
   </entry>
   
