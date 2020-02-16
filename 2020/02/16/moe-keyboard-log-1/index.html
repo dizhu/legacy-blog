@@ -16,7 +16,9 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://coderemixer.com/static/pcb-moe-legacy.jpg">
 <meta property="og:image" content="https://coderemixer.com/static/moe-core-feb.png">
-<meta property="og:updated_time" content="2020-02-16T13:47:51.051Z">
+<meta property="og:image" content="https://coderemixer.com/static/pcb-moe-feb-a.jpg">
+<meta property="og:image" content="https://coderemixer.com/static/pcb-moe-feb-b.jpg">
+<meta property="og:updated_time" content="2020-02-16T14:00:26.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「Keyboard Moe」从零开始自制键盘（一）">
 <meta name="twitter:description" content="需求探究我从去年就考虑做一把自己的键盘。其需要满足下面的需求：  便携性：提供不少于 70 键的键盘矩阵，支持蓝牙连接。 电池管理：能够对锂电池进行充放电，并监控电池电量状态。 接口现代：支持 Type-C 接口，可以自动在蓝牙和 USB HID 模式切换（方便装机等场景）。 矢量控制：提供一个类似于小红点的推杆，可以临时替代鼠标。 人体工学布局：由于我的打字键位并不是非常标准，导致现有的人体工学">
@@ -171,6 +173,8 @@
 <p>最后设计出来的核心板的尺寸是 14cm x 3cm。如果使用 <a href="https://www.nordicsemi.com/Products/Low-power-short-range-wireless/nRF5340" target="_blank" rel="noopener">nRF5340</a> 的方案应该尺寸能进一步减少，还能用上蓝牙 5.1 的新特性。就是 nRF5340 太贵，而且模块难买（业余项目没有精力去调射频参数）就放弃了。</p>
 <p>花了一上午来布线，最后折腾来折腾去，把布线控制在了两层板里，于是不需要用到四层板进一步降低了成本。最后合算下来的 BOM 成本在每套 45 元，加上板子和 SMT 的钱，核心板套件的成本在 65 元以内。比 Chicory 功能更丰富，加上配列板的推荐成本还是能控制在 90 元以内，还是颇有价格优势的。</p>
 <p><img src="/static/moe-core-feb.png" alt="电路图"></p>
+<p><img src="/static/pcb-moe-feb-a.jpg" alt="正面"></p>
+<p><img src="/static/pcb-moe-feb-b.jpg" alt="背面"></p>
 <p>工程（MIT 协议）：<a href="https://oshwhub.com/dsh0416/moe-core" target="_blank" rel="noopener">https://oshwhub.com/dsh0416/moe-core</a></p>
 <h2 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h2><p>等疫情过去了流出来调试。</p>
 
