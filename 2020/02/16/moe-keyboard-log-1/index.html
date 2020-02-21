@@ -9,7 +9,7 @@
     <meta name="description" content="需求探究我从去年就考虑做一把自己的键盘。其需要满足下面的需求：  便携性：提供不少于 70 键的键盘矩阵，支持蓝牙连接。 电池管理：能够对锂电池进行充放电，并监控电池电量状态。 接口现代：支持 Type-C 接口，可以自动在蓝牙和 USB HID 模式切换（方便装机等场景）。 矢量控制：提供一个类似于小红点的推杆，可以临时替代鼠标。 人体工学布局：由于我的打字键位并不是非常标准，导致现有的人体工学">
 <meta name="keywords" content="键盘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「Keyboard Moe」从零开始自制键盘（一）">
+<meta property="og:title" content="「Keyboard Moe」从零开始自制键盘（一）：硬件设计">
 <meta property="og:url" content="https://coderemixer.com/2020/02/16/moe-keyboard-log-1/index.html">
 <meta property="og:site_name" content="代码混音师">
 <meta property="og:description" content="需求探究我从去年就考虑做一把自己的键盘。其需要满足下面的需求：  便携性：提供不少于 70 键的键盘矩阵，支持蓝牙连接。 电池管理：能够对锂电池进行充放电，并监控电池电量状态。 接口现代：支持 Type-C 接口，可以自动在蓝牙和 USB HID 模式切换（方便装机等场景）。 矢量控制：提供一个类似于小红点的推杆，可以临时替代鼠标。 人体工学布局：由于我的打字键位并不是非常标准，导致现有的人体工学">
@@ -18,9 +18,9 @@
 <meta property="og:image" content="https://coderemixer.com/static/moe-core-feb.png">
 <meta property="og:image" content="https://coderemixer.com/static/pcb-moe-feb-a.png">
 <meta property="og:image" content="https://coderemixer.com/static/pcb-moe-feb-b.png">
-<meta property="og:updated_time" content="2020-02-18T10:55:56.514Z">
+<meta property="og:updated_time" content="2020-02-21T01:05:09.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「Keyboard Moe」从零开始自制键盘（一）">
+<meta name="twitter:title" content="「Keyboard Moe」从零开始自制键盘（一）：硬件设计">
 <meta name="twitter:description" content="需求探究我从去年就考虑做一把自己的键盘。其需要满足下面的需求：  便携性：提供不少于 70 键的键盘矩阵，支持蓝牙连接。 电池管理：能够对锂电池进行充放电，并监控电池电量状态。 接口现代：支持 Type-C 接口，可以自动在蓝牙和 USB HID 模式切换（方便装机等场景）。 矢量控制：提供一个类似于小红点的推杆，可以临时替代鼠标。 人体工学布局：由于我的打字键位并不是非常标准，导致现有的人体工学">
 <meta name="twitter:image" content="https://coderemixer.com/static/pcb-moe-legacy.jpg">
 <meta name="twitter:creator" content="@DeltonDing">
@@ -43,7 +43,7 @@
         
     
     <!-- title -->
-    <title>「Keyboard Moe」从零开始自制键盘（一）</title>
+    <title>「Keyboard Moe」从零开始自制键盘（一）：硬件设计</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -81,6 +81,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2020/02/21/moe-keyboard-log-2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="/2020/01/18/archetypes-skeptic/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -96,15 +98,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&text=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&is_video=false&description=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=「Keyboard Moe」从零开始自制键盘（一）&body=Check out this article: https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&name=「Keyboard Moe」从零开始自制键盘（一）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&text=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&is_video=false&description=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=「Keyboard Moe」从零开始自制键盘（一）：硬件设计&body=Check out this article: https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&name=「Keyboard Moe」从零开始自制键盘（一）：硬件设计&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -121,7 +123,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        「Keyboard Moe」从零开始自制键盘（一）
+        「Keyboard Moe」从零开始自制键盘（一）：硬件设计
     </h1>
 
 
@@ -220,15 +222,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&text=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&is_video=false&description=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=「Keyboard Moe」从零开始自制键盘（一）&body=Check out this article: https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&name=「Keyboard Moe」从零开始自制键盘（一）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&text=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&is_video=false&description=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=「Keyboard Moe」从零开始自制键盘（一）：硬件设计&body=Check out this article: https://coderemixer.com/2020/02/16/moe-keyboard-log-1/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&title=「Keyboard Moe」从零开始自制键盘（一）：硬件设计"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://coderemixer.com/2020/02/16/moe-keyboard-log-1/&name=「Keyboard Moe」从零开始自制键盘（一）：硬件设计&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
