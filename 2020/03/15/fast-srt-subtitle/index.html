@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="背景某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
+    <meta name="description" content="背景某位来自伊朗，现居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
 <meta name="keywords" content="字幕,YouTube">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6 小时重构一个字幕工具">
 <meta property="og:url" content="https://coderemixer.com/2020/03/15/fast-srt-subtitle/index.html">
 <meta property="og:site_name" content="代码混音师">
-<meta property="og:description" content="背景某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
+<meta property="og:description" content="背景某位来自伊朗，现居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://coderemixer.com/static/lodz.jpg">
-<meta property="og:updated_time" content="2020-03-15T01:47:33.860Z">
+<meta property="og:updated_time" content="2020-03-15T01:54:18.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6 小时重构一个字幕工具">
-<meta name="twitter:description" content="背景某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
+<meta name="twitter:description" content="背景某位来自伊朗，现居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」  Aegisub 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。 字幕流程字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 N">
 <meta name="twitter:image" content="https://coderemixer.com/static/lodz.jpg">
 <meta name="twitter:creator" content="@DeltonDing">
     
@@ -150,7 +150,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」</p>
+    <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某位来自伊朗，现居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」</p>
 <p><img src="/static/lodz.jpg" alt="lodz"></p>
 <p><a href="http://www.aegisub.org/" target="_blank" rel="noopener">Aegisub</a> 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。</p>
 <h2 id="字幕流程"><a href="#字幕流程" class="headerlink" title="字幕流程"></a>字幕流程</h2><p>字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 <a href="https://www.youtube.com/watch?v=Ath3BX9DBRs" target="_blank" rel="noopener">NiceChord 好和弦</a>的时候发现 wiwi 老师写了个类似想法的工具，主要是围绕提高打轴效率的一套程序。我尝试用了一下这套工具，想法是很好，但这代码是写的有点糟糕，介面也基本没有。</p>
