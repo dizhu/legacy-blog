@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderemixer.com/"/>
-  <updated>2020-03-15T01:19:13.477Z</updated>
+  <updated>2020-03-15T01:47:33.860Z</updated>
   <id>https://coderemixer.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>6 小时重构一个字幕工具</title>
+    <link href="https://coderemixer.com/2020/03/15/fast-srt-subtitle/"/>
+    <id>https://coderemixer.com/2020/03/15/fast-srt-subtitle/</id>
+    <published>2020-03-15T01:20:37.000Z</published>
+    <updated>2020-03-15T01:47:33.860Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」</p><p><img src="/static/lodz.jpg" alt="lodz"></p><p><a href="http://www.aegisub.org/" target="_blank" rel="noopener">Aegisub</a> 确实是一个非常好用的工具，提供了非常丰富的字幕特效，以及相对高的字幕效率，除了程序很容易崩溃。但对于简单的纯文本字幕，其实流程是可以进一步被优化的。</p><h2 id="字幕流程"><a href="#字幕流程" class="headerlink" title="字幕流程"></a>字幕流程</h2><p>字幕流程其实就三个部分：文字稿整理（听写或翻译）、打轴、校对。我们可以围绕这三个流程来设计一套最简单最高效的工作流。昨天看 <a href="https://www.youtube.com/watch?v=Ath3BX9DBRs" target="_blank" rel="noopener">NiceChord 好和弦</a>的时候发现 wiwi 老师写了个类似想法的工具，主要是围绕提高打轴效率的一套程序。我尝试用了一下这套工具，想法是很好，但这代码是写的有点糟糕，介面也基本没有。</p><p>于是我考虑重构。重构主要目的如下：</p><ul><li>用 Vue.js 实现一套可用的 UI</li><li>默认提供视频的播放控制</li><li>移除运行时的 Node.js 和 http-server 依赖</li><li>基于 File API 读取字幕文件和视频文件</li><li>基于 GitHub Actions 和 GitHub Pages 实现自动部署</li><li>基于 MIT 开源协议</li><li>提供 ESLint 代码风格 Linting</li><li>新增动态响应实现控制</li><li>新增 i18n 支持</li><li>新增字幕的实时预览功能</li><li>新增 SRT 字幕编辑有效性校验</li><li>新增对 WebVTT 格式的支持</li></ul><p>重新实现所有已有功能大约花了 2 小时，加的那堆新功能花了 4 小时。共计 6 小时把事情给搞完了。</p><p><a href="https://srt.coderemixer.com/" target="_blank" rel="noopener">Live Demo</a></p><p><a href="https://github.com/dsh0416/fast-srt-subtitle/" target="_blank" rel="noopener">GitHub Repo</a></p><p><a href="https://github.com/wiwikuan/fast-srt-subtitle/pull/4" target="_blank" rel="noopener">GitHub Pull Request</a></p><h2 id="已知-bug"><a href="#已知-bug" class="headerlink" title="已知 bug"></a>已知 bug</h2><p>发现 Firefox 的 CC 字幕 track 不能加载 blob url。这使得实时预览功能在 Firefox 上存在一定的问题，但 Chrome 和 Safari 都没有问题。准备这两天准备一下各种细节情况，向 Mozilla 回报一下。</p><p>其实也可以用 Electron 封装一下离线使用。</p><p>美其名曰，统一体验。</p><p>实则内存爆灹。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;某位来自伊朗，先居住在加拿大温哥华的翻译人员曾说过：「ass 能解决所有问题，对于我来说。」&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/stati
+      
+    
+    </summary>
+    
+    
+      <category term="字幕" scheme="https://coderemixer.com/tags/%E5%AD%97%E5%B9%95/"/>
+    
+      <category term="YouTube" scheme="https://coderemixer.com/tags/YouTube/"/>
+    
+  </entry>
   
   <entry>
     <title>一天折腾两个散热系统</title>
@@ -168,15 +194,15 @@
     </summary>
     
     
+      <category term="元胞自动机" scheme="https://coderemixer.com/tags/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+      <category term="混沌" scheme="https://coderemixer.com/tags/%E6%B7%B7%E6%B2%8C/"/>
+    
       <category term="游戏" scheme="https://coderemixer.com/tags/%E6%B8%B8%E6%88%8F/"/>
     
       <category term="设计" scheme="https://coderemixer.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Ingress" scheme="https://coderemixer.com/tags/Ingress/"/>
-    
-      <category term="元胞自动机" scheme="https://coderemixer.com/tags/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    
-      <category term="混沌" scheme="https://coderemixer.com/tags/%E6%B7%B7%E6%B2%8C/"/>
     
   </entry>
   
@@ -437,9 +463,9 @@
     
       <category term="语言学" scheme="https://coderemixer.com/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/"/>
     
-      <category term="方言" scheme="https://coderemixer.com/tags/%E6%96%B9%E8%A8%80/"/>
-    
       <category term="汉语" scheme="https://coderemixer.com/tags/%E6%B1%89%E8%AF%AD/"/>
+    
+      <category term="方言" scheme="https://coderemixer.com/tags/%E6%96%B9%E8%A8%80/"/>
     
       <category term="吴语" scheme="https://coderemixer.com/tags/%E5%90%B4%E8%AF%AD/"/>
     
@@ -527,32 +553,6 @@
       <category term="前端" scheme="https://coderemixer.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="开源" scheme="https://coderemixer.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Ruby Quiz] Base32 字母表 —— 加密猫基因解码</title>
-    <link href="https://coderemixer.com/2018/12/08/ruby-quiz-base32/"/>
-    <id>https://coderemixer.com/2018/12/08/ruby-quiz-base32/</id>
-    <published>2018-12-08T01:54:43.000Z</published>
-    <updated>2018-12-08T01:58:48.756Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/static/cryptokitties.png" alt="Crypto Kitties"></p><p>刚刚在 ruby-talk 的邮件列表读到一个很有意思的 Ruby Quiz，题目可以<a href="https://github.com/planetruby/quiz/tree/master/008" target="_blank" rel="noopener">见此</a>。想到好久没有看到 Ruby Quiz 了，就做了并翻译了一下。</p><h2 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h2><p>庆祝 CryptoKitties 一周年 —— 区块链上诞生了超过 100 万只可爱的小猫！</p><p>我们来尝试转换 “sekretoooo” 加密猫的基因，一个 240 位的整数，以每 5 位进行分割，再通过 base32 (2^5=32) 进行转换，转至 kai 标注。</p><p>Q: 什么是 kai 标注？</p><p>Kai 标注（因为 <a href="https://medium.com/@kaigani/the-cryptokitties-genome-project-on-dominance-inheritance-and-mutation-b73059dcd0a4" target="_blank" rel="noopener">Kai Turner</a> 解码了加密猫的基因而命名）是一种针对 240 位整数分割成 5 位块的 base58 的变种（子集）。每个 5 位块含有 32 种可能性，240 位基因可以给分割成 12 组，每组 4 (x 5 位）基因。</p><p>举例：</p><table><thead><tr><th>Kai</th><th>Binary</th><th>Num</th><th>Kai</th><th>Binary</th><th>Num</th><th>Kai</th><th>Binary</th><th>Num</th><th>Kai</th><th>Binary</th><th>Num</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>00000</td><td>00</td><td><strong>9</strong></td><td>01000</td><td>08</td><td><strong>h</strong></td><td>10000</td><td>16</td><td><strong>q</strong></td><td>11000</td><td>24</td></tr><tr><td><strong>2</strong></td><td>00001</td><td>01</td><td><strong>a</strong></td><td>01001</td><td>09</td><td><strong>i</strong></td><td>10001</td><td>17</td><td><strong>r</strong></td><td>11001</td><td>25</td></tr><tr><td><strong>3</strong></td><td>00010</td><td>02</td><td><strong>b</strong></td><td>01010</td><td>10</td><td><strong>j</strong></td><td>10010</td><td>18</td><td><strong>s</strong></td><td>11010</td><td>26</td></tr><tr><td><strong>4</strong></td><td>00011</td><td>03</td><td><strong>c</strong></td><td>01011</td><td>11</td><td><strong>k</strong></td><td>10011</td><td>19</td><td><strong>t</strong></td><td>11011</td><td>27</td></tr><tr><td><strong>5</strong></td><td>00100</td><td>04</td><td><strong>d</strong></td><td>01100</td><td>12</td><td><strong>m</strong></td><td>10100</td><td>20</td><td><strong>u</strong></td><td>11100</td><td>28</td></tr><tr><td><strong>6</strong></td><td>00101</td><td>05</td><td><strong>e</strong></td><td>01101</td><td>13</td><td><strong>n</strong></td><td>10101</td><td>21</td><td><strong>v</strong></td><td>11101</td><td>29</td></tr><tr><td><strong>7</strong></td><td>00110</td><td>06</td><td><strong>f</strong></td><td>01110</td><td>14</td><td><strong>o</strong></td><td>10110</td><td>22</td><td><strong>w</strong></td><td>11110</td><td>30</td></tr><tr><td><strong>8</strong></td><td>00111</td><td>07</td><td><strong>g</strong></td><td>01111</td><td>15</td><td><strong>p</strong></td><td>10111</td><td>23</td><td><strong>x</strong></td><td>11111</td><td>31</td></tr></tbody></table><p><strong>注意：数字 0 和字母 l 不会在 kai 中被使用。</strong></p><p>我们开始编程吧！举例来说：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># A 240-bit super "sekretoooo" integer genome</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexadecimal (base 16)</span></span><br><span class="line">genome = <span class="number">0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce</span></span><br><span class="line"><span class="comment"># decimal (base 10)</span></span><br><span class="line">genome = <span class="number">512955438081049600613224346938352058409509756310147795204209859701881294</span></span><br><span class="line"><span class="comment"># binary (base 2)</span></span><br><span class="line">genome = 0b01001010010100101001001100011100111001000000100001011100000101001011110111001110000000010100101000000011000110001000010<span class="number">0</span>\</span><br><span class="line">           <span class="number">011010100000110010000000100011000110000000101001010010100110001100010100101000110100101000010010100101011011100111001110</span></span><br></pre></td></tr></table></figure><p>我们可以把 10 进制数转换成 16 进制或 2 进制数：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">p genome    <span class="comment"># printed as decimal (base 10) by default</span></span><br><span class="line"><span class="comment"># =&gt; 512955438081049600613224346938352058409509756310147795204209859701881294</span></span><br><span class="line"></span><br><span class="line">p genome.to_s(<span class="number">16</span>)</span><br><span class="line"><span class="comment"># =&gt; "4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce"</span></span><br><span class="line"></span><br><span class="line">p genome.to_s(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># =&gt; "10010100101001010010011000111001110010000001000010111000001010010111101110011100000000101001010000000110001100010000100\</span></span><br><span class="line"><span class="comment">#     011010100000110010000000100011000110000000101001010010100110001100010100101000110100101000010010100101011011100111001110"</span></span><br><span class="line"></span><br><span class="line">bin = <span class="string">'%0240b'</span> % genome     <span class="comment"># note: adds leading zeros - to_s(2) does not</span></span><br><span class="line">p bin.size</span><br><span class="line"><span class="comment"># =&gt; 240</span></span><br><span class="line">p bin</span><br><span class="line"><span class="comment"># =&gt; "010010100101001010010011000111001110010000001000010111000001010010111101110011100000000101001010000000110001100010000100\</span></span><br><span class="line"><span class="comment">#     011010100000110010000000100011000110000000101001010010100110001100010100101000110100101000010010100101011011100111001110"</span></span><br><span class="line"></span><br><span class="line">hex = <span class="string">'%060x'</span> % genome     <span class="comment"># note: adds leading zeros - to_s(16) does not</span></span><br><span class="line">p hex.size</span><br><span class="line"><span class="comment"># =&gt; 60</span></span><br><span class="line">p hex</span><br><span class="line"><span class="comment"># =&gt; 60</span></span><br><span class="line"><span class="comment"># =&gt; "4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce"</span></span><br></pre></td></tr></table></figure><p>最终要得到的效果是：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kai = kai_encode( genome )   <span class="comment">## number to base32 kai notation</span></span><br><span class="line">p kai</span><br><span class="line"><span class="comment"># =&gt; "aaaa788522f2agff16617755e979244166677664a9aacfff"</span></span><br></pre></td></tr></table></figure><p>挑战：创建 <code>kai_encode</code> 方法并通过 RubyQuizTest :-).</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kai_encode</span><span class="params">( num )</span></span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>对于 Level 1 挑战，你需要把 240 位整数转换成 Base 32 的 Kai 标注。<br>对于 Level 2 挑战，你要把结果 4 个 4 个进行分组，将</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"aaaa788522f2agff16617755e979244166677664a9aacfff"</span></span><br></pre></td></tr></table></figure><p>转换成</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"aaaa 7885 22f2 agff 1661 7755 e979 2441 6667 7664 a9aa cfff"</span></span><br></pre></td></tr></table></figure><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kai_fmt</span><span class="params">( kai )</span></span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>你可以从头开始编码，也可以使用任何你想用的库 / gem。你需要通过如下的测试：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'minitest/autorun'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RubyQuizTest</span> &lt; MiniTest::Test</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">################################</span></span><br><span class="line">  <span class="comment"># test data</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">genomes</span></span></span><br><span class="line">     [</span><br><span class="line">       [<span class="number">0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce</span>,</span><br><span class="line">        <span class="string">"aaaa 7885 22f2 agff 1661 7755 e979 2441 6667 7664 a9aa cfff"</span>]</span><br><span class="line">     ]  </span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#############</span></span><br><span class="line">  <span class="comment"># tests</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_kai_encode</span></span></span><br><span class="line">    genomes.each <span class="keyword">do</span> <span class="params">|pair|</span></span><br><span class="line">      num       = pair[<span class="number">0</span>]</span><br><span class="line">      exp_value = pair[<span class="number">1</span>].gsub(<span class="string">' '</span>,<span class="string">''</span>)   <span class="comment"># note: remove spaces</span></span><br><span class="line"></span><br><span class="line">      assert_equal exp_value, kai_encode( num )</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span> <span class="comment"># method test_kai_encode</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_kai_fmt</span></span></span><br><span class="line">    genomes.each <span class="keyword">do</span> <span class="params">|pair|</span></span><br><span class="line">      kai       = pair[<span class="number">1</span>].gsub(<span class="string">' '</span>,<span class="string">''</span>) <span class="comment"># remove spaces</span></span><br><span class="line">      exp_value = pair[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">      assert_equal exp_value, kai_fmt( kai )</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span> <span class="comment"># method test_kai_fmt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="comment"># class RubyQuizTest</span></span><br></pre></td></tr></table></figure><p>注：对于解码后与基因的对应关系表实在太长了，而且和题目无关。如果想看可以查<a href="https://github.com/planetruby/quiz/blob/master/008/README.md" target="_blank" rel="noopener">原文</a>。</p><h2 id="剧透时间"><a href="#剧透时间" class="headerlink" title="剧透时间"></a>剧透时间</h2><p>我想出来的使用 Ruby 的一行解：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kai_encode</span><span class="params">(num)</span></span></span><br><span class="line">  num.to_s(<span class="number">2</span>).rjust(<span class="number">240</span>, <span class="string">'0'</span>).scan(<span class="regexp">/.&#123;5&#125;/</span>).map &#123;<span class="params">|n|</span> <span class="string">'123456789abcdefghijkmnopqrstuvwx'</span>[n.to_i(<span class="number">2</span>)]&#125;.join</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kai_fmt</span><span class="params">(kai)</span></span></span><br><span class="line">  kai.scan(<span class="regexp">/.&#123;4&#125;/</span>).join(<span class="string">' '</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">kai_encode(<span class="number">0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce</span>) <span class="comment"># =&gt; "aaaa788522f2agff16617755e979244166677664a9aacfff"</span></span><br><span class="line">kai_fmt(kai_encode(genome)) <span class="comment"># =&gt; "aaaa 7885 22f2 agff 1661 7755 e979 2441 6667 7664 a9aa cfff"</span></span><br></pre></td></tr></table></figure><p>好在 Ruby 的 <code>rjust</code> 方法是内建的，而不需要 import 一个叫 <code>left-pad</code> 的包，一旦被删除了就天下大乱了（逃</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;/static/cryptokitties.png&quot; alt=&quot;Crypto Kitties&quot;&gt;&lt;/p&gt;
-&lt;p&gt;刚刚在 ruby-talk 的邮件列表读到一个很有意思的 Ruby Quiz，题目可以&lt;a href=&quot;https://github.com/
-      
-    
-    </summary>
-    
-    
-      <category term="Ruby" scheme="https://coderemixer.com/tags/Ruby/"/>
-    
-      <category term="Ruby Quiz" scheme="https://coderemixer.com/tags/Ruby-Quiz/"/>
     
   </entry>
   
