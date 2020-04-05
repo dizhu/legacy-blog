@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderemixer.com/"/>
-  <updated>2020-03-15T02:57:33.589Z</updated>
+  <updated>2020-04-05T02:18:14.338Z</updated>
   <id>https://coderemixer.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些关于音乐游戏的想法</title>
+    <link href="https://coderemixer.com/2020/04/05/ideas-about-music-game/"/>
+    <id>https://coderemixer.com/2020/04/05/ideas-about-music-game/</id>
+    <published>2020-04-05T02:14:42.000Z</published>
+    <updated>2020-04-05T02:18:14.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>Stanley Parable 中通过对 Stanley 工作的描写，讽刺了一些电子游戏的本质。「屏幕上让 Stanley 按一个键，Stanley 就按下那个键」许多电子游戏事实上就是如此，本质上就是一些充满了 QTE 的播片。如果延伸到音乐游戏上，事实上就延展出了对于音乐游戏「音乐性 (musicality)」的探讨。</p><p>如果让我找个音乐游戏中最没有音乐性的，应该就是劲舞团（Audition, X-BEAT）。这东西背后放什么音乐和你敲下去什么东西基本没有任何关系，除了你需要在合拍 (multiple-levels) 上敲空格以外。如果我们追溯音乐游戏的早期，其实音乐游戏制作人对于音乐游戏本身的思考其实是很多样的，像是 1996 年发售的 パラッパラッパー 基本上是一个对节奏的 call and response，从最基本的正拍节奏开始，慢慢引入各种复杂的节奏型。同样类型的其实还有 1999 年的 Space Channel 5， 这款游戏甚至没有视觉上即将到来音符的任何提示，完全需要依靠听力和对节奏的记忆来完成游戏。不过这些依赖说唱发展的节奏游戏必然逃不开对唱和模仿的形式。设计得更加精妙的类型是节奏天国（リズム天国），通过把各种节奏型转换成一系列小游戏，视觉反馈是滞后的，用户需要在一些简单练习后通过掌握音乐本身的节奏来自行完成对游戏内按键的判断。</p><p>现在比较流行的音乐游戏，主要还是受启发于 1997 年发售的 beatmania 比较大。这类游戏本质上模拟乐器发出声音的节奏，有提前的视觉提示，几乎不会在没有声音的地方按键，相对来说对于节奏感的要求是很低的，上手的难度低。但这类游戏好模仿的一个原因是，简单调整演出和按键方式就可以相对容易做出新游戏，也很容易将现有的歌曲做成游戏内的关卡便于长期运营。增加难度的方法也比较容易，只需要增加音符出现的密度。像是 Space Channel 5 Part 2 最后大决战的演出里搞过一些密集的 16 分音符以外，通常都没有快到按不出来的按键，但是这样的现象在现在的音乐游戏中极其常见。同时，这样游戏也还可以通过提高判定严格程度来提高难度。在节奏天国这样的游戏里，把判定难度放到 10 个 frame 左右大多数人就会很难算准节奏了，而在视觉和听觉实际演奏音符的双重刺激下，经过练习，现代音游里动不动就可以把判定放到 6 个 frame 甚至更低。这也让玩家在通关后的成就感大幅提升。但这样的难度提升其实不是「音乐性」上难度的提升，其实就是单纯「恶心」人而已。当然这里「恶心」不是什么贬义词，我也很吃恶心这套。</p><p>但这类游戏有个问题是，这样的游戏对于音乐的理解是很有问题的。因为音乐中不是这里大声就一定是重拍，这种对于节奏的理解实在太过肤浅，基本就是把人当成背谱机器。这就像我们不能通过科幻小说来学习科学知识。你不能看完大刘的《球形闪电》就真的认为「盯着东西看，波函数会塌缩」。但是音乐本身不是一个艰涩的科学知识，它本来就是充满了人天生的对节奏的内在感受，是一个每个人都能享受的东西。所以我们才已经有一些游戏做到了真正把音乐游戏做成围绕「音乐」本身设计的游戏，而不是一个换了皮的 QTE 游戏。</p><p>但我也很难说这种克服恶心下得到的成就感比较高，还是在游戏后自己感觉到自己对于音乐的理解有提升的这种好奇心带来的成就高。对于我来说，还是后者比较开心，而且后者也更可以做成一个共乐的游戏，而不是在一个音游的小圈子里大家天天在那里埋头背谱练习。只不过我们已经有很多年再也没有类似设计目的的游戏了。虽然这类游戏销量其实也都不低，有好几款都是大卖的爆款。但和那些能提供长期营收的流水音游来说，还是差了点。不知道有没有什么方法可以同时兼顾游戏性和商业性。</p><p>不知道各位游戏制作人有没有什么想法，也算是能了我一个心愿了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Stanley Parable 中通过对 Stanley 工作的描写，讽刺了一些电子游戏的本质。「屏幕上让 Stanley 按一个键，Stanley 就按下那个键」许多电子游戏事实上就是如此，本质上就是一些充满了 QTE 的播片。如果延伸到音乐游戏上，事实上就延展出了对于音
+      
+    
+    </summary>
+    
+    
+      <category term="游戏" scheme="https://coderemixer.com/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="音乐" scheme="https://coderemixer.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
   
   <entry>
     <title>6 小时重构一个字幕工具</title>
@@ -526,33 +551,6 @@
       <category term="设计" scheme="https://coderemixer.com/tags/%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="混合现实" scheme="https://coderemixer.com/tags/%E6%B7%B7%E5%90%88%E7%8E%B0%E5%AE%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ant Design 错了吗？</title>
-    <link href="https://coderemixer.com/2018/12/25/is-antd-wrong/"/>
-    <id>https://coderemixer.com/2018/12/25/is-antd-wrong/</id>
-    <published>2018-12-25T13:43:54.000Z</published>
-    <updated>2018-12-25T14:01:50.354Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>Ant Design 今天的<a href="https://github.com/ant-design/ant-design/issues/13848" target="_blank" rel="noopener">圣诞门</a>闹得沸沸扬扬，Ant Design 内建的圣诞彩蛋在各个使用 antd 的产品中被「强制」弹出，令许多人措手不及，造成了很大的社会影响。但事实上，Ant Design 使用的是 MIT LICENSE，完全是一个使用者「后果自负」的协议。然而，Issue 里哭天喊地要开发者「负责」的舆论却又一面倒。</p><p>在此，我要问一个问题：「Ant Design 错了吗？」</p><p>​<img src="/static/is-ali-wrong.jpg" alt="is-ali-wront"></p><p>就我来看，毋庸置疑，错了。</p><p>但这篇文章讨论的是以下几点：</p><ul><li>Ant Design 犯了什么错？</li><li>开源的权利与责任的界限在哪里？</li><li>我们应当怎么从这个事件中获取教训？</li></ul><h2 id="Ant-Design-犯了什么错？"><a href="#Ant-Design-犯了什么错？" class="headerlink" title="Ant Design 犯了什么错？"></a>Ant Design 犯了什么错？</h2><p>从产品的角度来看，这个彩蛋，连彩蛋的定义都不符合。彩蛋（Easter Eggs）是一个隐藏在程序中的信息，而不是突然糊在你脸上的定时炸弹。所以从想出这个问题的那个人就已经不太对劲了。但我们抛开这个产品的问题，从实现上，这个 <code>Santa.jsx</code> 文件也同样是非常糟糕。作为一个组件级项目，很多人会对组件样式做二次开发，这一坨硬编码（Hardcoded）并没有起到它彩蛋的作用，相反还把很多网站弄得一团糟。如果你试图阅读过 Ruby 的代码，你往往会发现 Ruby 有那么多错误命名的 C API 为什么一直不把它改对呢？因为这种语言级别的东西，你无法确定用户是怎么使用的时候，就必须保持最低限度的兼容。Ant Design 也是如此。</p><p>然而「人主之患在莫之应，故曰：一手独拍，虽疾无声。」导致 Ant Design 问题的，不单单是彩蛋本身的错，更大的是 Ant Design 开源社区开发流程的问题。或者换一句话说：是软件工程的问题。</p><p>如果我们现在要往一个开源项目中加入一个不合适的东西，其实并不那么容易。Ant Design 有基于 GitHub Pull Request 系统的 Code Review 机制。一个并非紧急的代码，为什么可以直接跳过 Code Review 直接推上去？Ant Design 作为一个组件级的基础项目，到底应该怎么设计测试？</p><p>这个 <a href="https://github.com/ant-design/ant-design/commit/f706e2554f706b4e47f0c0cb3bcada1fe24dc32d" target="_blank" rel="noopener">2017 年 12 月 25 日</a> 写下的代码，写入到发作的这一年中，暴露的并不是谁的错，而是这个项目本身就是一个错误。</p><h2 id="如何运行一个开源项目？"><a href="#如何运行一个开源项目？" class="headerlink" title="如何运行一个开源项目？"></a>如何运行一个开源项目？</h2><p>Ant Design 错了，需要检讨，需要反省，需要道歉。但另一方面，在 Issue 下大骂「要阿里负责，要阿里赔偿」的则是走向了另一个极端。今天的开源项目，在使用常见的 Copyleft 许可证的情况下，大多数（包含且不止包含 MIT、BSD、GPLv2、GPLv3、AGPLv3、LGPLv3、MPL 2.0、Apache License 2.0、The Unlicensed）都在许可证中明确写了，不包括任何保修的条款，使用者自行负责。这让很多人听起来匪夷所思，觉得 Ant Design 一个阿里的产品，怎么也是阿里在背书。然而事实上，可能除了信誉，没有规定任何东西是实质的背书。前几天有人在 Ruby China 上开了个<a href="https://ruby-china.org/topics/37902" target="_blank" rel="noopener">帖子</a>问：</p><blockquote><p>到某某网站上浏览时，发现上面说，以上版本均需获取商业授权，方可做商业运营使用，既然是开源的，咋还涉及到商业授权啊，不理解，请指教。谢谢！</p></blockquote><p>然而版权的实际情况却恰恰相反。源代码放出来只是让你看，并不能让你用。就像别人放在那里的芒果，你不能寻思是别人不要了吧。代码是不是开源，需要取决于使用什么授权协议。哪怕是 GPL 的 RedHat 也有卖商业服务的。如果人家没有设定任何授权协议的话，那就只能默认是 Copyright 私有了。而只有签了具体包含保修责任的条款的协议后，对方才有保修的义务。不然，我自己写着玩开源出来，你用的时候也已经同意免责了。你用出问题了为什么要来找我呢？有问题你自己 fork 了改不就好了？</p><p>这就牵扯到了另一个问题：开源的社会价值。当一个开源产品，比如 Ant Design，有大量的用户在使用的时候，对于这个开源社区的期待是完全不同的。这也是为什么世界上大多数的大型开源项目，都有一个庞大的组织在维护着。其目的很大程度上，就是要维护代码的可靠性，担负起其社会价值。<del>你觉得阿里价值观能担负起社会价值吗？</del></p><p>有人在我微博下呛：</p><blockquote><p>照右边这个逻辑的话，广大 MIT 框架作者应该纷纷往自己代码加挖矿，这世界不需要开源，人与人也不需要信任。别人写好的高级语言也别用啊，一起汇编起来。</p></blockquote><p>然而事实上，如果你愿意找一下，GitHub 上许多 MIT 项目是有暗藏挖矿的，甚至还有暗藏后门的。至于「别人写好的高级语言也别用啊」也是如此，UNIX 创始人 Ken Thompson 在 30 年前获得图灵奖的获奖演说中，就有提到这种类似的暗藏在 C 语言编译器中的手段实现攻击。这也是为什么一方面 C 语言编译器也有一套复杂的自举发布流程，像 gcc 还会有严格的代码审查机制来避免这种问题的发生。然而甚至硬件本身，也不是 100% 可信的。这不是「人与人的信任」问题，相反，就算 100% 相信别人不去做坏事，但是由于人都会犯错，总会做出错误的东西，我们需要的是通过机制来避免它发生。</p><p>在以前一个非常有名的 NVIDIA 开源驱动的维护项目 <a href="https://github.com/MrMEEE/bumblebee-Old-and-abbandoned/issues/123" target="_blank" rel="noopener">bumblebee</a> 中就有出现过开发者疏失，导致更新的用户直接把所有的 <code>/usr</code> 用户文件不小心删了个精光。甚至<a href="https://www.omgubuntu.co.uk/2013/11/nsa-ask-linus-torvalds-include-backdoors-linux-father-says-yes" target="_blank" rel="noopener">有人</a>曾试图通过给 Linux 项目提交 patch 的形式，将后门埋入操作系统中。并且这些看起来不经意的错误，甚至会使得一些人为的 Code Review 失效，所以 Linux 还有复杂的安全性和回归测试来保证其可靠性。</p><p>如果这不是无意的行为，而是有意的。那么对于开源世界，我们有个更简单的方法：fork。我们只要分叉一个自己的版本，自己维护自己负责就可以了。MySQL 被 Oracle 收购后，虽然 Oracle 暂时还没有做什么坏事，大家为了谨防这种情况发生，就有一些开发者 fork 出了 MariaDB。</p><p>但是，我也反过来问一句：你 fork 后的项目，你真的能维护得更好吗？</p><p>软件工程是一个复杂而庞大的东西，把七个积木搭在一起，和把七千万块积木堆在一起是完全不同的系统工程问题。开源软件的管理看起来松散，于是更需要设计合理的制度防范于未然。在挑选开源项目的时候，并不只是挑一个能用的就行了，对于其质量、维护能力、开源协议都必须是评估的内容。我不是在说「用开源的东西不审查代码，出了问题活该」，但是什么都不看，不出问题才奇怪吧？</p><h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>为什么包括谷歌微软在内的大公司，在使用别人的开源项目时，都要经过内部审查。虽然不至于精确到每行代码，但也要大致确认一下这个项目的状况。这也是为什么，Facebook 之前内部许可证事件沸沸扬扬，因为这真的很重要。就好像，警察在努力阻止盗窃案的发生，但我们自身平时就要做好防范，而不能大门敞开，出了事去骂警察吧。</p><p>然而现实的情况却是，用 Ant Design 的本来就是一群想用个组件库草草了事的人，根本没有可能去参与到开源项目的审查中。而 Ant Design 目前草率的开发流程，确实也无法承担如此大的社会责任。如果今天不是「偏右」的圣诞节代码出了问题，明天后天一样会出别的问题。如果今天是「偏右」辞退就来平息风波，那么明天后天 Ant Design 还是会继续出问题（<del>毕竟是阿里嘛</del>）。</p><p>​<img src="/static/judge.png" alt="judge"></p><p>今天 Ant Design 的问题是一个典型的软件工程问题，让任何一个个人来负责，都只是息事宁人的策略，并不能从根本上解决问题。对于一个「开发公司 HR 工具的离职谈话功能推到开发者头上；匿名表达对老员工，特别是对彭姓员工不满，大老板可能含沙射影地让你滚；用脚本在公司网站抢月饼，可能违反价值观」的公司，你指望它在软件工程上有秩序吗？</p><p>我觉得你在做梦。</p><p>总结一下：</p><ul><li>开源项目本身并没有所谓的「责任」的概念，你要有自己评估其可靠性的能力，并承担风险。</li><li>评估可靠性不在于其背后是多大的公司，更在于其是否有健全的开发流程，因为人为疏失不可避免。</li><li>越是底层、组件级的项目对于可靠性的要求越高。</li><li>只要不是主观上故意犯错误，我们更应该检讨我们的系统工程，而不单单是检讨个人。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;Ant Design 今天的&lt;a href=&quot;https://github.com/ant-design/ant-design/issues/138
-      
-    
-    </summary>
-    
-    
-      <category term="阿里巴巴" scheme="https://coderemixer.com/tags/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/"/>
-    
-      <category term="前端" scheme="https://coderemixer.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="开源" scheme="https://coderemixer.com/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
